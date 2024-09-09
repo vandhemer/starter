@@ -7,7 +7,7 @@ import Breadcrumb from "./components/Breadcrumb";
 const Page = () => {
     return (
         <main>
-            <AutoPromo />
+            <AutoPromo text="EXCLUSIVITE CONFORAMA.fr : Payez en 4 fois Carte bancaire" />
             <div className="w-full mx-auto container">
                 <Header />
                 <Breadcrumb />

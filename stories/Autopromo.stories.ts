@@ -2,8 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import AutoPromo from '../src/app/components/autopromo/Autopromo';
 
-
-AutoPromo
 const meta = {
   title: 'Components/AutoPromo',
   component: AutoPromo,
@@ -20,5 +18,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Autopromo: Story = {
-    args: {},
+    args: {
+      text: "EXCLUSIVITE CONFORAMA.fr : Payez en 4 fois Carte bancaire"
+    },
 };
