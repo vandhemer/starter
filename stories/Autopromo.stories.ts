@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
 import AutoPromo from '../src/app/components/autopromo/Autopromo';
 
 const meta = {
