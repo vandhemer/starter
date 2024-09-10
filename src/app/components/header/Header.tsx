@@ -42,7 +42,7 @@ export default function Header() {
                             className="md:[filter:invert(100%)]"
                         />
                         <span className="pl-3 hidden md:flex">
-                            Nos produits
+                            Produits
                         </span>
                     </div>
                     <ul className="hidden md:flex md:self-center">
