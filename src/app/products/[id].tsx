@@ -1,6 +1,6 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
-import { Product } from '../../models/product';
-import { fetchProductById, fetchProducts } from '../../services/productService';
+import { Product } from '../models/product';
+import { fetchProductById, fetchProducts } from '../services/productService';
 
 interface ProductPageProps {
   product: Product;
