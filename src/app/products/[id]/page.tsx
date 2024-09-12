@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <ul>
-      {products.data.map((product: Product) => (
+      {products.map((product: Product) => (
         <section className="relative py-6">
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-0">
             <div
