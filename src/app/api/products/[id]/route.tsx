@@ -5,11 +5,7 @@ export async function GET( request: Request, { params }: { params: { id: string 
       accept: 'application/json',
       'Content-Type': 'application/json',
     },
-  })
-  const data = await res.json();
- 
-  return Response.json({ data })
+  });
+
+  return Response.json( await res.json() )
 }
-
-
-//{ params }: { params: { slug: string } }

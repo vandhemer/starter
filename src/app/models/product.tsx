@@ -1,5 +1,9 @@
 // models/Product.ts
 export interface Product {
+  essentialCharacteristics: any;
+  primaryImages: any;
+  numberOfReview: number;
+  urlPicture: string | undefined;
   id: string;
   name: string;
   description: string;
