@@ -1,10 +1,15 @@
 "use client";
 
+import Breadcrumb from "../app/components/Breadcrumb";
+
 const Page = () => {
     return (
-        <div className="mx-auto text-center">
-            Accueil
-        </div>
+        <>
+            <Breadcrumb />
+            <div className="mx-auto text-center">
+                Accueil
+            </div>
+        </>
     );
 };
 

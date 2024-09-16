@@ -1,5 +1,5 @@
 import { Product } from '../../models/product';
-
+import Breadcrumb from '../../components/Breadcrumb';
 
 export default async function Page({ params }: { params: { id: string } }) {
   const productId = params?.id;
@@ -12,6 +12,8 @@ export default async function Page({ params }: { params: { id: string } }) {
   const products = await res.json();
 
   return (
+    <>
+    <Breadcrumb />
     <ul>
       {products.map((product: Product) => (
         <section className="relative py-6">
@@ -107,5 +109,6 @@ export default async function Page({ params }: { params: { id: string } }) {
         </section>
       ))}
     </ul>
+    </>
   )
-};
+}
