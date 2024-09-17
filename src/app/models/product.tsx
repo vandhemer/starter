@@ -1,5 +1,6 @@
 // models/Product.ts
 export interface Product {
+  refFournisseur: string;
   essentialCharacteristics: any;
   primaryImages: any;
   numberOfReview: number;
