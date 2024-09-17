@@ -11,7 +11,7 @@ import Searchbar from "./Searchbar";
 
 export default function Header() {
     return (
-        <header className="w-full z-30 top-0 py-1">
+        <header className="w-full z-30 top-0 py-1 bg-transparent">
             <div className="navbar w-full mx-auto grid grid-cols-3 mt-0 px-6 py-3 
                 [grid-template-areas:'logo_header_menu''search_search_search']
                 md:[grid-template-areas:'logo_search_header''menu_menu_menu']

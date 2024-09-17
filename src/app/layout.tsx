@@ -19,7 +19,7 @@ export default function RootLayout({
         <body className={`${inter.className} antialiased`}>
           <main>
               <AutoPromo text="EXCLUSIVITE CONFORAMA.fr : Payez en 4 fois Carte bancaire" />
-              <div className="w-full mx-auto container">
+              <div className="w-full mx-auto relative container">
                   <Header />
                   {children}
               </div>

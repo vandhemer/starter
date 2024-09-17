@@ -6,7 +6,7 @@ export default function Searchbar() {
         <form className="flex items-center w-full">   
             <label htmlFor="simple-search" className="sr-only">Search</label>
             <div className="relative w-full flex border border-gray-300 text-gray-900 text-sm rounded-3xl block w-full p-2.5">
-                <input type="text" id="simple-search" className="w-full pl-2 focus:outline-none" placeholder="Rechercher votre meuble, canapé, ..." required />
+                <input type="text" id="simple-search" className="w-full pl-2 bg-transparent placeholder-white focus:outline-none" placeholder="Rechercher votre meuble, canapé, ..." required />
                 <button type="submit" className="">
                     <Image
                         priority
