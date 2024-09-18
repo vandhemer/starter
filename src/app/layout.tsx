@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import "./styles/globals.css";
-import { inter } from "./styles/fonts";
-import AutoPromo from "./components/autopromo/Autopromo";
-import Header from "./components/header/Header";
+import "@/styles/globals.css";
+import { inter } from "@/styles/fonts";
+import StoreProvider from "./contexts/StoreProvider";
+import Layout from "@/components/Layout";
 
 export const metadata: Metadata = {
   title: "Conforama",
@@ -10,21 +10,17 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <StoreProvider>
+      <html lang="fr">
         <body className={`${inter.className} antialiased`}>
-          <main>
-              <AutoPromo text="EXCLUSIVITE CONFORAMA.fr : Payez en 4 fois Carte bancaire" />
-              <div className="w-full mx-auto relative container">
-                  <Header />
-                  {children}
-              </div>
-          </main>
+          {children}
         </body>
-    </html>
+      </html>
+    </StoreProvider>
   );
 }

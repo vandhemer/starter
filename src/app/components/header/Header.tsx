@@ -1,18 +1,24 @@
-import Menu from "./Menu";
-import Logo from "./Logo";
+import Menu from "@/components/header/Menu";
+import Logo from "@/components/header/Logo";
 import Image from 'next/image';
 import Link from 'next/link';
 
-import iconLogin from '../../../../public/assets/icons/login.svg';
-import iconCart from '../../../../public/assets/icons/cart.svg';
-import iconMenu from '../../../../public/assets/icons/menu-burger.svg';
-
+import iconLogin from '@/public/assets/icons/login.svg';
+import iconCart from '@/public/assets/icons/cart.svg';
+import iconMenu from '@/public/assets/icons/menu-burger.svg';
 import Searchbar from "./Searchbar";
 
-export default function Header() {
+export default function Header({ isHeaderTransparent = false }) {
+
+    let headerCssClass = "w-full z-30 top-0 py-1";
+
+    if(isHeaderTransparent) {
+        headerCssClass += " bg-gradient-to-b from-black/60 via-transparent via-80%";
+    }
+    
     return (
-        <header className="w-full z-30 top-0 py-1 bg-transparent">
-            <div className="navbar w-full mx-auto grid grid-cols-3 mt-0 px-6 py-3 
+        <header className={headerCssClass}>
+            <div className="navbar w-full mx-auto grid grid-cols-3 mt-0 px-10 py-3 
                 [grid-template-areas:'logo_header_menu''search_search_search']
                 md:[grid-template-areas:'logo_search_header''menu_menu_menu']
             ">

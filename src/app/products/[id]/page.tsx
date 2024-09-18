@@ -1,5 +1,6 @@
-import { Product } from '../../models/product';
-import Breadcrumb from '../../components/Breadcrumb';
+import { Product } from '@/models/product';
+import Breadcrumb from '@/components/Breadcrumb';
+import Layout from "@/components/Layout";
 
 export default async function Page({ params }: { params: { id: string } }) {
   const productId = params?.id;
@@ -23,7 +24,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   }
 
   return (
-    <>
+    <Layout>
       <Breadcrumb />
       {products.map((product: Product) => (
         <section key={product.code} className="relative py-6">
@@ -118,6 +119,6 @@ export default async function Page({ params }: { params: { id: string } }) {
           </div>
         </section>
       ))}
-    </>
+    </Layout>
   )
 }

@@ -34,7 +34,7 @@ export interface Price {
   ecoPartPrice: string;
   percentageReduction: string | null;
 }
-
+ 
 // models/LoyaltyPrice.ts
 export interface LoyaltyPrice {
   price: string;

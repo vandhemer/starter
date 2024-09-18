@@ -1,5 +1,5 @@
-import ImageLoading from "../../skeletons/ImageLoading";
-import TextLoading from "../../skeletons/TextLoading";
+import ImageLoading from "@/app/skeletons/ImageLoading";
+import TextLoading from "@/app/skeletons/TextLoading";
 
 export default function Loading() {
     return (
