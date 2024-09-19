@@ -9,7 +9,7 @@ export default async function Homepage() {
     let banner: BannerModel;
 
     try {
-        const response = await fetch('http://localhost:3000/api/cms/Home', {
+        const response = await fetch(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/cms/Home', {
             headers: {
                 accept: 'application/json',
                 'Content-Type': 'application/json',

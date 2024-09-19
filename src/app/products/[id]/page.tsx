@@ -1,4 +1,4 @@
-import { Product } from '@/models/product';
+import { Product } from '@/app/models/product/product';
 import Breadcrumb from '@/components/Breadcrumb';
 import Layout from "@/components/Layout";
 
@@ -7,7 +7,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   let thisProduct: Product[] = [];
 
   try {
-    const response = await fetch('http://localhost:3000/api/products/' + productId, {
+    const response = await fetch(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/products/' + productId, {
       headers: {
         accept: 'application/json',
         'Content-Type': 'application/json',
