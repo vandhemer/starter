@@ -1,5 +1,5 @@
-import { Component } from "../typescript/component";
-import { Image } from "../typescript/action";
+import { Component } from "./component";
+import { Image } from "./action";
 import { Entry, HeaderProps ,FooterProps } from "./layout";
 
 type AdditionalParam = {

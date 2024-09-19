@@ -1,4 +1,4 @@
-import { fetchProductById } from "../../../services/productService";
+import { fetchProductById } from "../../../services/getProductService";
 
 export const fetchCache = 'default-no-store';
 

@@ -1,5 +1,5 @@
 import { Image } from "./action";
-import { Component } from "../typescript/component";
+import { Component } from "./component";
 
 type AdditionalParam = {
   title: {};

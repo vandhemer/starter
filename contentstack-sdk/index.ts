@@ -105,10 +105,10 @@ export const getEntryByUrl = ({
   jsonRtePath,
 }: GetEntryByUrl) => {
   return new Promise((resolve, reject) => {
-    const blogQuery = Stack.ContentType(contentTypeUid).Query();
-    if (referenceFieldPath) blogQuery.includeReference(referenceFieldPath);
-    blogQuery.toJSON();
-    const data = blogQuery.where("url", `${entryUrl}`).find();
+    const pageQuery = Stack.ContentType(contentTypeUid).Query();
+    if (referenceFieldPath) pageQuery.includeReference(referenceFieldPath);
+    pageQuery.toJSON();
+    const data = pageQuery.where("title", `${entryUrl}`).find();
     data.then(
       (result) => {
         jsonRtePath &&

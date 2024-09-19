@@ -13,7 +13,7 @@ export default function Header({ isHeaderTransparent = false }) {
     let headerCssClass = "w-full z-30 top-0 py-1";
 
     if(isHeaderTransparent) {
-        headerCssClass += " bg-gradient-to-b from-black/60 via-transparent via-80%";
+        headerCssClass += " bg-gradient-to-b from-black/60 via-transparent via-100%";
     }
     
     return (
@@ -39,7 +39,7 @@ export default function Header({ isHeaderTransparent = false }) {
                         />
                     </a>
                 </div>
-                <div className="menu flex self-center place-self-end md:place-self-start cursor-pointer block [grid-area:menu]">
+                <div className="menu flex self-center place-self-end md:place-self-start cursor-pointer block md:py-3 [grid-area:menu]">
                     <div className="flex md:text-white md:bg-black md:rounded-3xl md:p-3">
                         <Image
                             priority

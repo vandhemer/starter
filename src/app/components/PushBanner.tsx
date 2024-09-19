@@ -1,4 +1,28 @@
-export default function PushBanner() {
+import { Image, Action } from "@/models/cms/action";
+
+type AdditionalParam = {
+    banner_title: string;
+    banner_description: string;
+}
+
+type Banner = {
+    bg_color: string;
+    text_color: string;
+    banner_title: string;
+    banner_description: string;
+    call_to_action: Action;
+    banner_image: Image;
+    $: AdditionalParam;
+}
+
+type BannerProps = {
+    banner: Banner;
+}
+
+export default function PushBanner(props: BannerProps) {
+
+    const banner = props.banner;
+
     return (
         <div className="absolute bottom-12 left-12">
             <div className="max-w-xl text-left ltr:sm:text-left rtl:sm:text-right">
