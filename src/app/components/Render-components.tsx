@@ -1,6 +1,6 @@
 import React from 'react';
 
-import PushBanner from './PushBanner';
+import PushBanner from '@/components/PushBanner';
 import { RenderProps } from "@/models/cms/component";
 
 export default function RenderComponents(props: RenderProps) {

@@ -9,5 +9,5 @@ export const fetchProductById = async (id: string): Promise<Product> => {
     },
   })
   
-  return Response.json(await res.json());
+  return await res.json();
 };

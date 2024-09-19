@@ -1,12 +1,12 @@
 import Banner from "@/components/Banner";
+import { Banner as BannerModel} from "@/models/cms/component";
 import Layout from "@/components/Layout";
-import { Pages } from "@/models/cms/pages";
+import { Page } from "@/models/cms/pages";
 
-export default async function Page() {
+export default async function Homepage() {
 
-    let data: Pages[] = [];
-    let imageUrl, title;
-
+    let data: Page;
+    let banner: BannerModel;
 
     try {
         const response = await fetch('http://localhost:3000/api/cms/Home', {
@@ -14,6 +14,7 @@ export default async function Page() {
                 accept: 'application/json',
                 'Content-Type': 'application/json',
             },
+            cache: 'no-store',
         });
 
         if (!response.ok) {
@@ -21,17 +22,15 @@ export default async function Page() {
         }
 
         data = await response.json();
-        title = data.page_components[0].hero_banner.banner_title;
-        imageUrl = data.page_components[0].hero_banner.banner_image.url;
-        
+        banner = data.page_components[0].hero_banner;
+        return (
+            <Layout isHeaderTransparent={true}>
+                <Banner banner={banner} />
+            </Layout>
+        )        
     }
+
     catch (error: any) {
         console.error(error.message);
     }
-
-    return (
-        <Layout isHeaderTransparent={true}>
-            <Banner imageUrl={imageUrl} title={title}/>
-        </Layout>
-    );
-};
+}

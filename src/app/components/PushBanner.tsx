@@ -27,7 +27,7 @@ export default function PushBanner(props: BannerProps) {
         <div className="absolute bottom-12 left-12">
             <div className="max-w-xl text-left ltr:sm:text-left rtl:sm:text-right">
                 <p className="max-w-lg uppercase text-white text-2xl">
-                    Jusqu'au 1er avril
+                    {banner.banner_title}
                 </p>
                 <h1 className="uppercase font-extrabold text-white text-[128px]">
                     <strong className="block font-extrabold text-yellow-100">-40%</strong>

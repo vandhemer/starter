@@ -66,7 +66,7 @@ export type Props = {
   footer: FooterProps;
 }
 
-export type Page ={
+export type Page = {
   page_components: Component[];
   uid: string;
   locale: string;

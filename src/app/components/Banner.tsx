@@ -1,19 +1,28 @@
-import PushBanner from "@/components/PushBanner";
+import { Banner as BannerModel} from "@/models/cms/component";
+import Image from 'next/image';
+interface BannerProps {
+    banner: BannerModel;
+}
 
-export default function Banner({imageUrl, title}) {
+export default function Banner({ banner }: BannerProps) {
+
+    const { banner_title, banner_image } = banner;
+
     return (
         <div className="banner mx-auto text-center absolute overflow-hidden -z-10 top-0 w-full">
             <div className="">
-                <img
-                    alt=""
-                    src={imageUrl}
+                <Image
+                    src={ banner_image.url }
+                    alt={ banner_title }
                     className="-z-20 w-full object-cover min-h-[611px] sd:min-h-[565px]"
+                    width="1200"
+                    height="600"
                 />
 
                 <div className="absolute bg-gray-400/40 p-6 rounded-lg bottom-12 left-12">
                     <div className="max-w-xl text-left ltr:sm:text-left rtl:sm:text-right">
                         <p className="max-w-lg uppercase text-white text-2xl">
-                            {title}
+                            {banner_title}
                         </p>
                         <h1 className="uppercase font-extrabold text-white text-[128px]">
                             <strong className="block font-extrabold text-yellow-100">-40%</strong>
@@ -23,8 +32,6 @@ export default function Banner({imageUrl, title}) {
                         </p>
                     </div>
                 </div>
-
-                
             </div>
         </div>
     )
