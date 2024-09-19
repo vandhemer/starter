@@ -1,4 +1,4 @@
-export interface Image {
+export interface ImageProduct {
     imageType: string | null;
     format: string | null;
     url: string;

@@ -1,4 +1,4 @@
-import { FeatureValue } from "@/models/product/featureValue";
+import { FeatureValue } from "@/models/product/featurevalue";
 import { ClassificationGroup } from "@/models/product/classificationgroup";
 
 export interface EssentialCharacteristic {

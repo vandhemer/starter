@@ -1,9 +1,9 @@
 import { EssentialCharacteristic } from "@/models/product/characteristic";
-import { MadData } from "@/models/product/deliveryData";
+import { MadData } from "@/models/product/deliverydata";
 import { Flyer } from "@/models/product/flyer";
 import { Price } from "@/models/product/price";
 import { PriorityPushOp } from "@/models/product/pushop";
-
+import { ImageProduct } from "@/models/product/imageproduct";
 
 export interface Product {
   pk: string;
@@ -48,8 +48,8 @@ export interface Product {
   calculatedLabelNormalized: string;
   urlPicture: string;
   urlProduct: string;
-  primaryImages: { [key: string]: Image };
-  ambianceImages: { [key: string]: Image };
+  primaryImages: { [key: string]: ImageProduct };
+  ambianceImages: { [key: string]: ImageProduct };
   essentialCharacteristics: EssentialCharacteristic[];
   repairabilityIndex: string | null;
   energyClassData: any | null;
