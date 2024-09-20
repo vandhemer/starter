@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   }
 
   if (!thisProduct.length) {
-    return <>{dict.products.notfound}</>;
+    return <>{dict.products.notfound} </>;
   }
 
   return (
