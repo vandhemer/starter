@@ -3,6 +3,8 @@ import { Banner as BannerModel} from "@/models/cms/component";
 import Layout from "@/components/Layout";
 import { Page } from "@/models/cms/pages";
 
+export const dynamic = 'force-dynamic';
+
 export default async function Homepage() {
 
     let data: Page;

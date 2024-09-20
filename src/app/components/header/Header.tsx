@@ -6,7 +6,7 @@ import Link from 'next/link';
 import iconLogin from '@/public/assets/icons/login.svg';
 import iconCart from '@/public/assets/icons/cart.svg';
 import iconMenu from '@/public/assets/icons/menu-burger.svg';
-import Searchbar from "./Searchbar";
+import Searchbar from "@/components/header/Searchbar";
 
 export default function Header({ isHeaderTransparent = false }) {
 
@@ -18,7 +18,7 @@ export default function Header({ isHeaderTransparent = false }) {
     
     return (
         <header className={headerCssClass}>
-            <div className="navbar w-full mx-auto grid grid-cols-3 mt-0 px-10 py-3 
+            <div className="navbar w-full mx-auto grid grid-cols-3 mt-0 px-6 md:px-10 py-3 
                 [grid-template-areas:'logo_header_menu''search_search_search']
                 md:[grid-template-areas:'logo_search_header''menu_menu_menu']
             ">

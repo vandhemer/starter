@@ -1,4 +1,4 @@
-import { fetchEntryByTitle } from "@/app/services/cms/getEntryService";
+import { fetchEntryByTitle } from "@/services/cms/getEntryService";
 
 export const fetchCache = 'default-no-store';
 

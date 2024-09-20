@@ -11,15 +11,18 @@ export default function Banner({ banner }: BannerProps) {
     return (
         <div className="banner mx-auto text-center absolute overflow-hidden -z-10 top-0 w-full">
             <div className="">
-                <Image
-                    src={ banner_image.url }
-                    alt={ banner_title }
-                    className="-z-20 w-full object-cover min-h-[611px] sd:min-h-[565px]"
-                    width="1200"
-                    height="600"
-                />
+                {banner_image ?
+                    <Image
+                        src={ banner_image.url }
+                        alt={ banner_title }
+                        className="-z-20 w-full object-cover h-[611px] sd:h-[565px]"
+                        width="1200"
+                        height="600"
+                    />
+                    : ''
+                }
 
-                <div className="absolute bg-gray-400/40 p-6 rounded-lg bottom-12 left-12">
+                <div className="absolute bg-gray-400/40 p-6 rounded-lg bottom-6 left-6 md:bottom-12 md:left-12">
                     <div className="max-w-xl text-left ltr:sm:text-left rtl:sm:text-right">
                         <p className="max-w-lg uppercase text-white text-2xl">
                             {banner_title}
