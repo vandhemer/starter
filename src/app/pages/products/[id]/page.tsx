@@ -1,7 +1,4 @@
 import { Product } from '@/app/models/product/product';
-import Breadcrumb from '@/components/Breadcrumb';
-import Layout from "@/components/Layout";
-import Header from "@/components/header/Header";
 import { getDictionary } from '@/app/[lang]/dictionaries';
 
 export default async function Page({ params }: { params: { id: string } }) {
@@ -30,12 +27,11 @@ export default async function Page({ params }: { params: { id: string } }) {
   }
 
   if (!thisProduct.length) {
-    return <Layout>{dict.products.notfound}</Layout>;
+    return <>{dict.products.notfound}</>;
   }
 
   return (
-    <Layout Header={<Header isHeaderTransparent = {false} />}>
-      <Breadcrumb />
+    <>
       {thisProduct.map((product: Product) => (
         <section key={product.pk} className="relative py-6">
           <div className="w-full mx-auto px-4 sm:px-6 lg:px-0">
@@ -105,6 +101,6 @@ export default async function Page({ params }: { params: { id: string } }) {
           </div>
         </section>
       ))}
-    </Layout>
+    </>
   );
 }
