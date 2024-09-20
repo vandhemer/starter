@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { inter } from "@/styles/fonts";
 import StoreProvider from "./contexts/StoreProvider";
-import Layout from "@/components/Layout";
 
 export const metadata: Metadata = {
   title: "Conforama",

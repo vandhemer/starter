@@ -1,5 +1,7 @@
 {
     "products": {
-      "cart": "Ajouter au panier"
+      "cart": "Ajouter au panier",
+      "reviews": "avis",
+      "notfound": "Produit inconnu"
     }
 }

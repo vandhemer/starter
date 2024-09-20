@@ -1,8 +1,13 @@
 import { Product } from '@/app/models/product/product';
 import Breadcrumb from '@/components/Breadcrumb';
 import Layout from "@/components/Layout";
+import Header from "@/components/header/Header";
+import { getDictionary } from '@/app/[lang]/dictionaries';
 
 export default async function Page({ params }: { params: { id: string } }) {
+
+  const dict = await getDictionary('fr');
+
   const productId = params?.id;
   let thisProduct: Product[] = [];
 
@@ -25,11 +30,11 @@ export default async function Page({ params }: { params: { id: string } }) {
   }
 
   if (!thisProduct.length) {
-    return <Layout>Product not found</Layout>;
+    return <Layout>{dict.products.notfound}</Layout>;
   }
 
   return (
-    <Layout>
+    <Layout Header={<Header isHeaderTransparent = {false} />}>
       <Breadcrumb />
       {thisProduct.map((product: Product) => (
         <section key={product.pk} className="relative py-6">
@@ -55,7 +60,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                     </h6>
                     <div className="flex items-center gap-2">
                       <span className="pl-2 font-normal leading-7 text-gray-500 text-sm">
-                        {product.numberOfReview} avis
+                        {product.numberOfReview} {dict.products.reviews}
                       </span>
                     </div>
                   </div>
@@ -91,7 +96,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                       </svg>
                     </button>
                     <button className="text-center w-full px-5 py-4 rounded-3xl bg-red-500 flex gap-2 items-center justify-center font-semibold text-lg text-white shadow-sm transition-all duration-500 hover:bg-red-700 hover:shadow-red-400">
-                      Ajouter au panier
+                      {dict.products.cart}
                     </button>
                   </div>
                 </div>

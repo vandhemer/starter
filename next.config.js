@@ -32,6 +32,14 @@ const config = {
       },
     ],
   },
+  async rewrites() {
+    return [
+      {
+        source: '/:path((?!api).*)',
+        destination: '/pages/:path*',
+      },
+    ]
+  },
 };
 module.exports =
   process.env.NODE_ENV === "development" ? config : withPWA(config);
