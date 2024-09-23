@@ -1,33 +1,80 @@
-import { CProduct } from "../models/cproduct";
-import { Product } from "../models/product";
+import { CProduct, ProductAttributeType, Image, ProductPrice, ProductAttribute } from "@/models/cproduct";
+import { copyFileSync } from "fs";
 
 export const ProductMapper = {
 
     // Transformer les donéées brutes des API en Product à utiliser coté Client
 
-    populate( apiProduct) {
+    populate(apiProduct: any) {
 
+        let productItem = apiProduct[0];
 
-
-        const product : CProduct =
+        const product: CProduct =
         {
-            id: apiProduct[0].code,
-            name: apiProduct[0].name,
-            description: apiProduct[0].short_description,
+            id: productItem.code,
+            name: productItem.name,
+            description: productItem.short_description,
             type: 'ConfoProduct',
-            price: apiProduct[0].price,
-            category: apiProduct[0].stock,
-            brand: apiProduct[0].brand,
-            images: [],
-            attributes: [],
-            numberOfReview: 0,
-            slug: apiProduct[0].urlProduct,
-            stock: apiProduct[0].availability
+            price: this.populatePriceForproduct(productItem),
+            category: productItem.stock,
+            brand: productItem.brand,
+            images: [this.populateImagesForproduct(productItem)],
+            attributes: this.populateAttributesForproduct(productItem),
+            numberOfReview: productItem.numberOfReview,
+            slug: productItem.urlProduct,
+            stock: productItem.availability,
+            refFournisseur:productItem.refFournisseur,
+            createdAt: undefined,
+            updatedAt: undefined
         }
 
         return product;
+    },
+    populateAttributesForproduct(apiProduct: any) {
+        let productAttribute: ProductAttribute;
+        let productAttributes: ProductAttribute[] = [];
+
+        apiProduct.essentialCharacteristics.forEach((essentialCharacter: any) => {
+            productAttribute =
+            {
+                code: essentialCharacter.code,
+                name: essentialCharacter.name,
+                type: ProductAttributeType.ESSENTIAL,
+                unit: "",
+                value: essentialCharacter.featureValues[0].value
+            }
+            productAttributes.push(productAttribute)
+        });
+
+        return productAttributes;
+    },
+
+    populateImagesForproduct(apiProduct: any) {
+
+        const image: Image =
+        {
+            url: apiProduct.primaryImages.zoom.url,
+            format: undefined,
+            imageType: "",
+            altText: ""
+        }
+
+        return image;
+    },
+
+    populatePriceForproduct(apiProduct: any) {
+
+        const productPrice: ProductPrice =
+        {
+            basicPrice: apiProduct.price.price,
+            unitprice: 0,
+            discountPrice: 0,
+            currency: ""
+        }
+
+        return productPrice;
+
+    }
+
 
 }
-
-}
-

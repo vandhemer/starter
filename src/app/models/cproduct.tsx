@@ -12,6 +12,8 @@ export interface CProduct {
     numberOfReview: number;
     price: ProductPrice;
     stock: number;
+    /* TODO : to update */
+    refFournisseur:string;
     createdAt: Date;
     updatedAt: Date;
   }
@@ -19,15 +21,15 @@ export interface CProduct {
   export interface ProductPrice{
     basicPrice: number,
     unitprice: number,
-    discountPrice:number,
+    discountPrice:number,   
     currency: string;
   }
   
   export interface Image {
-    formats: MediaFormat[];
-    title?: string;
-    alternativeDescription?: string;
-    link?: MediaLink;
+    imageType?: string;
+    format?: MediaFormat; 
+    url: string;
+    altText: string;
   }
   
   export interface MediaFormat {
@@ -35,13 +37,7 @@ export interface CProduct {
     height: number;
     absoluteUrl: string;
   }
-  
-  export interface MediaLink {
-    id: string;
-    slug: string;
-    type: string;
-  }
-  
+   
   export interface ProductAttribute {
     code: string;
     name: string;
@@ -51,6 +47,6 @@ export interface CProduct {
   }
   
   export enum ProductAttributeType {
-    ESSANTIAL = "ESSANTIAL",
+    ESSENTIAL = "ESSENTIAL",
   }
   
