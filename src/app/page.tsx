@@ -1,39 +1,15 @@
 import Banner from "@/components/Banner";
-import { Banner as BannerModel} from "@/models/cms/component";
 import Layout from "@/components/Layout";
-import { Page } from "@/models/cms/pages";
 import Header from "@/components/header/Header";
 
 export const dynamic = 'force-dynamic';
 
 export default async function Homepage() {
 
-    let data: Page;
-    let banner: BannerModel;
+    return (
+        <Layout Header={<Header isHeaderTransparent = {true} />}>
+            <Banner />
+        </Layout>
+    )     
 
-    try {
-        const response = await fetch(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/cms/Home', {
-            headers: {
-                accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            cache: 'no-store',
-        });
-
-        if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-        }
-
-        data = await response.json();
-        banner = data.page_components[0].hero_banner;
-        return (
-            <Layout Header={<Header isHeaderTransparent = {true} />}>
-                <Banner banner={banner} />
-            </Layout>
-        )        
-    }
-
-    catch (error: any) {
-        console.error(error.message);
-    }
 }

@@ -1,12 +1,44 @@
 import { Banner as BannerModel} from "@/models/cms/component";
 import Image from 'next/image';
-interface BannerProps {
-    banner: BannerModel;
+import { Page } from "@/models/cms/pages";
+
+async function fetchContent() {
+
+    let data: Page;
+    let banner: BannerModel;
+
+    try {
+        const response = await fetch(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/cms/Home', {
+            headers: {
+                accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            cache: 'no-store',
+        });
+
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+
+        data = await response.json();
+        return banner = data.page_components[0].hero_banner;
+   
+    }
+
+    catch (error: any) {
+        console.error(error.message);
+    }
 }
 
-export default function Banner({ banner }: BannerProps) {
+export default async function Banner() {
 
-    const { banner_title, banner_image } = banner;
+    const banner = await fetchContent();
+
+    if (!banner) {
+        return <div>Loading...</div>;
+    }
+
+    const { banner_image, banner_title } = banner;
 
     return (
         <div className="banner mx-auto text-center absolute overflow-hidden -z-10 top-0 w-full">
