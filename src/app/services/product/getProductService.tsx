@@ -22,13 +22,7 @@ export const fetchProductById = async (id: string): Promise<Product> => {
 };
 
 export const getProductById = async (id: string) : Promise<Product> =>{
-  
-
   const data = await client.get<Product>('https://cloud-api.conforama.fr/occ/v2/conforama/products/UEFSSVMgTkFUSU9O/fullproduct?productsCodes=' + id);
-  
   const product= ProductMapper.populate(data);
-  console.log('mappertest');
-  console.log(product);
-
   return data;
 };
