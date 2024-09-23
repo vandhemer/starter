@@ -1,7 +1,7 @@
 import { addEditableTags } from "@contentstack/utils";
-import { Page, BlogPosts } from "../typescript/pages";
+import { Page, BlogPosts } from "@/models/cms/pages";
 import getConfig from "next/config";
-import { FooterProps, HeaderProps } from "../typescript/layout";
+import { FooterProps, HeaderProps } from "@/models/cms/layout";
 import { getEntry, getEntryByUrl } from "../contentstack-sdk";
 
 const { publicRuntimeConfig } = getConfig();

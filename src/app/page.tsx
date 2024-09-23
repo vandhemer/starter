@@ -1,16 +1,36 @@
-"use client";
+import Banner from "@/components/Banner";
+import { Banner as BannerModel} from "@/models/cms/component";
+import Layout from "@/components/Layout";
+import { Page } from "@/models/cms/pages";
 
-import Breadcrumb from "../app/components/Breadcrumb";
+export default async function Homepage() {
 
-const Page = () => {
-    return (
-        <>
-            <Breadcrumb />
-            <div className="mx-auto text-center">
-                Accueil
-            </div>
-        </>
-    );
-};
+    let data: Page;
+    let banner: BannerModel;
 
-export default Page;
+    try {
+        const response = await fetch(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/cms/Home', {
+            headers: {
+                accept: 'application/json',
+                'Content-Type': 'application/json',
+            },
+            cache: 'no-store',
+        });
+
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+
+        data = await response.json();
+        banner = data.page_components[0].hero_banner;
+        return (
+            <Layout isHeaderTransparent={true}>
+                <Banner banner={banner} />
+            </Layout>
+        )        
+    }
+
+    catch (error: any) {
+        console.error(error.message);
+    }
+}
