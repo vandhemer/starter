@@ -7,8 +7,6 @@ export const ProductMapper = {
 
     populate( apiProduct) {
 
-console.log ('in populate *******************')
-console.log(apiProduct)
 
 
         const product : CProduct =

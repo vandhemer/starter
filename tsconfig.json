@@ -29,6 +29,9 @@
       "@/components/*": ["./src/app/components/*"],
       "@/models/*": ["./src/app/models/*"],
       "@/styles/*": ["./src/app/styles/*"],
+      "@/services/*": ["./src/app/services/*"],
+      "@/mappers/*": ["./src/app/mappers/*"],
+      "@/utils/*": ["./src/app/utils/*"],
     }
   },
   "include": [

@@ -2,6 +2,9 @@ import Banner from "@/components/Banner";
 import { Banner as BannerModel} from "@/models/cms/component";
 import Layout from "@/components/Layout";
 import { Page } from "@/models/cms/pages";
+import Header from "@/components/header/Header";
+
+export const dynamic = 'force-dynamic';
 
 export default async function Homepage() {
 
@@ -24,7 +27,7 @@ export default async function Homepage() {
         data = await response.json();
         banner = data.page_components[0].hero_banner;
         return (
-            <Layout isHeaderTransparent={true}>
+            <Layout Header={<Header isHeaderTransparent = {true} />}>
                 <Banner banner={banner} />
             </Layout>
         )        

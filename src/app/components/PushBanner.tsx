@@ -24,7 +24,7 @@ export default function PushBanner(props: BannerProps) {
     const banner = props.banner;
 
     return (
-        <div className="absolute bottom-12 left-12">
+        <div className="absolute bottom-3 left-3 md:bottom-12 md:left-12">
             <div className="max-w-xl text-left ltr:sm:text-left rtl:sm:text-right">
                 <p className="max-w-lg uppercase text-white text-2xl">
                     {banner.banner_title}
