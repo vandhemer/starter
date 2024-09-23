@@ -4,7 +4,7 @@ import client from '@/utils/http/client';
 import { ProductMapper } from '@/mappers/ProductMapper';
 
 export const fetchProductById = async (id: string): Promise<Product> => {
-  
+
   const headers: HeadersInit = {
     accept: 'application/json',
     'Content-Type': 'application/json',
@@ -14,7 +14,7 @@ export const fetchProductById = async (id: string): Promise<Product> => {
     headers['X-Gravitee-Api-Key'] = process.env.GRAVITEE_API_KEY;
   }
 
-  const res = await fetch(process.env.PRODUCT_API_URL + '/products/v1/UEFSSVMgTkFUSU9O/fullproduct?productsCodes=' + id, {
+  const res = await fetch(process.env.PRODUCT_API_URL + '/UEFSSVMgTkFUSU9O/fullproduct?productsCodes=' + id, {
     headers,
   });
   

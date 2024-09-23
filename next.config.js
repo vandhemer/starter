@@ -40,6 +40,7 @@ const config = {
       },
     ]
   },
+  reactStrictMode: false,
 };
 module.exports =
   process.env.NODE_ENV === "development" ? config : withPWA(config);
