@@ -1,6 +1,6 @@
 import { CProduct } from '@/app/models/cproduct';
 import { getDictionary } from '@/app/[lang]/dictionaries';
-import { getProductById } from '@/app/services/product/ProductService';
+import client from '@/utils/http/client';
 
 export async function generateStaticParams() {
   return [];
@@ -14,7 +14,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   let product: CProduct | undefined;
 
   try {
-    product = await getProductById(productId);
+    product = await client.get<CProduct>(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/products/' + productId);
   } catch (error: any) {
     console.error(error.message);
   }
