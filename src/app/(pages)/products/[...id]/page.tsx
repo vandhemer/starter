@@ -2,6 +2,10 @@ import { CProduct } from '@/app/models/cproduct';
 import { getDictionary } from '@/app/[lang]/dictionaries';
 import { getProductById } from '@/app/services/product/getProductService';
 
+export async function generateStaticParams() {
+  return [];
+}
+
 export default async function Page({ params }: { params: { id: string } }) {
 
   const dict = await getDictionary('fr');
@@ -90,4 +94,4 @@ export default async function Page({ params }: { params: { id: string } }) {
       </section>
     </>
   );
-}
+};

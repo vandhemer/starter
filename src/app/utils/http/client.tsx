@@ -31,4 +31,5 @@ export class Client {
   }
 }
 
-export default new Client();
+const client = new Client();
+export default client;
