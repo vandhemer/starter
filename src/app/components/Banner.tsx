@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { use } from "react";
 import { Page } from "@/models/cms/pages";
 
+export const fetchCache = 'default-no-store';
+
 async function fetchContent() {
 
     let data: Page;

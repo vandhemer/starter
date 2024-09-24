@@ -24,8 +24,8 @@ export const ProductMapper = {
             slug: productItem.urlProduct,
             stock: productItem.availability,
             refFournisseur: productItem.refFournisseur ,
-            createdAt: undefined,
-            updatedAt: undefined
+            createdAt: new Date(),
+            updatedAt: new Date()
         }
 
         return product;
