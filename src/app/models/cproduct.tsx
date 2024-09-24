@@ -13,7 +13,7 @@ export interface CProduct {
     price: ProductPrice;
     stock: number;
     /* TODO : to update */
-    refFournisseur:string;
+    refFournisseur: string;
     createdAt: Date;
     updatedAt: Date;
   }

@@ -1,4 +1,3 @@
-import { Product } from '@/app/models/product/product';
 import { CProduct } from '@/app/models/cproduct';
 import { getDictionary } from '@/app/[lang]/dictionaries';
 import { getProductById } from '@/app/services/product/getProductService';
@@ -8,34 +7,22 @@ export default async function Page({ params }: { params: { id: string } }) {
   const dict = await getDictionary('fr');
 
   const productId = params?.id;
-  let product: CProduct;
+  let product: CProduct | undefined;
 
   try {
-    // const response = await fetch(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/products/' + productId, {
-    //   headers: {
-    //     accept: 'application/json',
-    //     'Content-Type': 'application/json',
-    //   },
-    //   cache: 'no-store',
-    // });
-
-    // if (!response.ok) {
-    //   throw new Error(`Response status: ${response.status}`);
-    // }
-
     product = await getProductById(productId);
-    if(!product) {
-      return <div>Oups !</div>
-    }
   } catch (error: any) {
     console.error(error.message);
   }
-
+  
+  if (!product) {
+    throw new Error(`Produit indisponible`);
+  }
 
   return (
     <>
       <section className="relative py-6">        
-        { <div className="w-full mx-auto px-4 sm:px-6 lg:px-0">
+        <div className="w-full mx-auto px-4 sm:px-6 lg:px-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mx-auto max-md:px-2">
             <div className="img">
               <div className="img-box h-full max-lg:mx-auto">
@@ -49,7 +36,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             <div className="data w-full lg:pr-8 pr-0 justify-center flex items-center max-lg:pb-10 xl:my-2 lg:my-5 my-0">
               <div className="data w-full max-w-xl">
                 <h2 className="font-bold text-3xl leading-10 text-gray-900 mb-2">
-                  {product.name} <strong>{/*product.refFournisseur*/}</strong>
+                  {product.name} <strong>{product.refFournisseur}</strong>
                 </h2>
                 <div className="flex flex-col sm:flex-row sm:items-center mb-6">
                   <h6 className="font-semibold text-2xl leading-9 text-gray-900 pr-5 sm:border-r border-gray-200 mr-5">
@@ -99,7 +86,7 @@ export default async function Page({ params }: { params: { id: string } }) {
               </div>
             </div>
           </div>
-        </div> }
+        </div>
       </section>
     </>
   );

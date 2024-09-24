@@ -1,9 +1,8 @@
 import { CProduct, ProductAttributeType, Image, ProductPrice, ProductAttribute } from "@/models/cproduct";
-import { copyFileSync } from "fs";
 
 export const ProductMapper = {
 
-    // Transformer les donéées brutes des API en Product à utiliser coté Client
+    // Transformer les données brutes des API en Product à utiliser coté Client
 
     populate(apiProduct: any) {
 
@@ -23,7 +22,7 @@ export const ProductMapper = {
             numberOfReview: productItem.numberOfReview,
             slug: productItem.urlProduct,
             stock: productItem.availability,
-            refFournisseur:productItem.refFournisseur,
+            refFournisseur: productItem.refFournisseur,
             createdAt: undefined,
             updatedAt: undefined
         }
