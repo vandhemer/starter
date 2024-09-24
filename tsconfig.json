@@ -18,13 +18,10 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "baseUrl": ".",
+    "types": ["@testing-library/jest-dom"],
     "paths": {
-      "@/*": ["./src/*"],
+      "@/app/*": ["./src/app/*"],
       "@/public/*": ["./public/*"],
       "@/components/*": ["./src/app/components/*"],
       "@/models/*": ["./src/app/models/*"],
@@ -32,7 +29,12 @@
       "@/services/*": ["./src/app/services/*"],
       "@/mappers/*": ["./src/app/mappers/*"],
       "@/utils/*": ["./src/app/utils/*"],
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
   },
   "include": [
     "next-env.d.ts",

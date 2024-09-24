@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import AutoPromo from '../src/app/components/autopromo/Autopromo';
+import AutoPromo from '@/components/autopromo/Autopromo';
 
 const meta = {
   title: 'Components/AutoPromo',

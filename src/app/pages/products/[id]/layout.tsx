@@ -1,6 +1,6 @@
-import Layout from "@/app/components/Layout";
-import Breadcrumb from "@/app/components/Breadcrumb";
-import Header from "@/app/components/header/Header";
+import Layout from "@/components/Layout";
+import Breadcrumb from "@/components/Breadcrumb";
+import Header from "@/components/header/Header";
 
 export default function ProductDetailLayout({
         children,

@@ -1,5 +1,6 @@
 import { Banner as BannerModel} from "@/models/cms/component";
 import Image from 'next/image';
+import { use } from "react";
 import { Page } from "@/models/cms/pages";
 
 async function fetchContent() {
@@ -20,8 +21,7 @@ async function fetchContent() {
             throw new Error(`Response status: ${response.status}`);
         }
 
-        data = await response.json();
-        return banner = data.page_components[0].hero_banner;
+        return await response.json();
    
     }
 
@@ -30,9 +30,10 @@ async function fetchContent() {
     }
 }
 
-export default async function Banner() {
+export default function Banner() {
 
-    const banner = await fetchContent();
+    const data = use(fetchContent());
+    let banner = data.page_components[0].hero_banner;
 
     if (!banner) {
         return <div>Loading...</div>;
