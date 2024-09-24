@@ -32,14 +32,6 @@ const config = {
       },
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: '/:path((?!api).*)',
-        destination: '/pages/:path*',
-      },
-    ]
-  },
   reactStrictMode: false,
 };
 
