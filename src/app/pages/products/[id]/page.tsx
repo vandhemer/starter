@@ -1,6 +1,6 @@
 import { CProduct } from '@/app/models/cproduct';
 import { getDictionary } from '@/app/[lang]/dictionaries';
-import { getProductById } from '@/app/services/product/getProductService';
+import { getProductById } from '@/app/services/product/ProductService';
 
 export default async function Page({ params }: { params: { id: string } }) {
 
