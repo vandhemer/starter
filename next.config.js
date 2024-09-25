@@ -30,6 +30,12 @@ const config = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'media.conforama.fr',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   reactStrictMode: false,
