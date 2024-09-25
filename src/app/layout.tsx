@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { inter } from "@/styles/fonts";
-import StoreProvider from "./contexts/StoreProvider";
 
 export const metadata: Metadata = {
   title: "Conforama",
@@ -14,12 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <StoreProvider>
-      <html lang="fr">
-        <body className={`${inter.className} antialiased`}>
-          {children}
-        </body>
-      </html>
-    </StoreProvider>
+    <html lang="fr">
+      <body className={`${inter.className} antialiased`}>
+        {children}
+      </body>
+    </html>
   );
 }

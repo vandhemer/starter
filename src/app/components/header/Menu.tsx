@@ -1,17 +1,17 @@
 'use client'
 
+import { useContext } from 'react';
+import { DrawerContext } from '@/app/contexts/drawerContext';
 import iconMenu from '@/public/assets/icons/menu-burger.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Menu() {
 
-  function openMenu() {
+  const { toggleDrawer, setToggleDrawer } = useContext(DrawerContext);
 
-    const sidebar = document.getElementById('sidebar');
-    if(sidebar) {
-      sidebar.classList.toggle('-translate-x-full');
-    }
+  function openMenu() {
+    setToggleDrawer(!toggleDrawer);
   }
 
   return (                
