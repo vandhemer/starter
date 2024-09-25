@@ -26,6 +26,7 @@
       "@/components/*": ["./src/app/components/*"],
       "@/models/*": ["./src/app/models/*"],
       "@/styles/*": ["./src/app/styles/*"],
+      "@/skeletons/*": ["./src/app/skeletons/*"],
       "@/services/*": ["./src/app/services/*"],
       "@/contexts/*": ["./src/app/contexts/*"],
       "@/mappers/*": ["./src/app/mappers/*"],

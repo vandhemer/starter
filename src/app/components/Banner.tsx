@@ -1,7 +1,7 @@
-import { Banner as BannerModel} from "@/models/cms/component";
 import Image from 'next/image';
 import { use } from "react";
 import { Page } from "@/models/cms/pages";
+import TextLoading from "@/skeletons/TextLoading";
 
 export const fetchCache = 'default-no-store';
 
@@ -37,7 +37,7 @@ export default function Banner() {
     const data = use(fetchContent());
 
     if (!data) {
-        return <div>Loading...</div>;
+        return <TextLoading />;
     }
 
     const { banner_image, banner_title } = data;
