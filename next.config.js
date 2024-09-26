@@ -35,6 +35,22 @@ const config = {
   reactStrictMode: false,
 };
 
+module.exports = config
+// process.env.NODE_ENV === "development" ? config : withPWA(config);
+
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: "/:slug*/p/:code", destination: "/products/:slug*/:code" ,
+      },
+    ]
+  },
+
+ 
+}
+
+
 
 // const withBundleAnalyzer = require('@next/bundle-analyzer')({
 //   enabled: process.env.ANALYZE === 'true',
@@ -42,5 +58,3 @@ const config = {
 
 // module.exports = withBundleAnalyzer({})
 
-module.exports =
-  process.env.NODE_ENV === "development" ? config : withPWA(config);

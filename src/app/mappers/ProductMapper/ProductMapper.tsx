@@ -8,6 +8,7 @@ export const ProductMapper = {
     populate(apiProduct: any) {
 
         let productItem = apiProduct[0];
+    
 
         const product: CProduct =
         {

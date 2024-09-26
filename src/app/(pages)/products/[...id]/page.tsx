@@ -1,22 +1,34 @@
 import { CProduct } from '@/app/models/cproduct';
 import { getDictionary } from '@/app/[lang]/dictionaries';
 import client from '@/utils/http/client';
+import { redirect, RedirectType } from 'next/navigation';
+import { UrlBuilder } from '@/app/utils/UrlBuilder';
 
 export async function generateStaticParams() {
   return [];
 }
 
-export default async function Page({ params }: { params: { id: string } }) {
 
+export default async function Page({ params }: { params: { id: string[] } }) {
+  
   const dict = await getDictionary('fr');
 
   const productId = params?.id;
   let product: CProduct | undefined;
 
   try {
-    product = await client.get<CProduct>(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/products/' + productId);
+    product = await client.get<CProduct>(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/products/' + productId[productId.length - 1]);
   } catch (error: any) {
     console.error(error.message);
+  }
+  
+  console.log('before......'+productId.slice(0, -1).join('/') +/p/ + productId[productId.length - 1])
+
+  if(product.slug.substr(24) != '/'+productId.slice(0, -1).join('/') +/p/ + productId[productId.length - 1])
+  {
+    const newUrl=UrlBuilder.buildProductUrl(product.slug.substr(24),productId[productId.length - 1]);
+    console.log('new.....'+newUrl);
+    redirect(newUrl);
   }
   
   if (!product) {
