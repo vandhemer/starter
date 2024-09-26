@@ -2,7 +2,7 @@ import { addEditableTags } from "@contentstack/utils";
 import { Page, BlogPosts } from "@/models/cms/pages";
 import getConfig from "next/config";
 import { FooterProps, HeaderProps } from "@/models/cms/layout";
-import { getEntry, getEntryByUrl } from "../contentstack-sdk";
+import { getEntry, getEntryByUrl } from "@/lib/contentstack-sdk";
 
 const { publicRuntimeConfig } = getConfig();
 const envConfig = process.env.CONTENTSTACK_API_KEY

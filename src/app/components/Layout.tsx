@@ -1,7 +1,5 @@
 import AutoPromo from "@/components/autopromo/Autopromo";
-import Drawer from "@/components/Drawer";
-import { DrawerProvider } from "@/contexts/drawerContext";
-
+import { DrawerProvider } from "@/app/contexts/DrawerContext";
 interface LayoutProps {
     children?: React.ReactNode;
     Header?: React.ReactNode;
@@ -16,7 +14,6 @@ export default function Layout({ children, Header }: LayoutProps) {
                     {Header}
                     {children}
                 </div>
-                <Drawer />
             </main>
         </DrawerProvider>
     )

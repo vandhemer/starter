@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 import iconChevron from '../../../public/assets/icons/chevron.svg';
 import iconHome from '../../../public/assets/icons/home.svg';
 

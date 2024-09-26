@@ -1,17 +1,17 @@
-import Menu from "@/components/header/Menu";
-import Logo from "@/components/header/Logo";
+import Menu from '@/components/header/Menu';
+import Logo from '@/components/header/Logo';
 import Image from 'next/image';
 
 import iconLogin from '@/public/assets/icons/login.svg';
 import iconCart from '@/public/assets/icons/cart.svg';
-import Searchbar from "@/components/header/Searchbar";
+import Searchbar from '@/components/header/Searchbar';
 
 export default function Header({ isHeaderTransparent = false }) {
 
-    let headerCssClass = "w-full z-30 top-0 py-1";
+    let headerCssClass = 'w-full z-30 top-0 py-1';
 
     if(isHeaderTransparent) {
-        headerCssClass += " drop-shadow-md text-white bg-gradient-to-b from-black/40 via-transparent via-100%";
+        headerCssClass += ' drop-shadow-md text-white bg-gradient-to-b from-black/40 via-transparent via-100%';
     }
     
     return (

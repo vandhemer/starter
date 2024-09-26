@@ -16,6 +16,7 @@ export default function RootLayout({
     <html lang="fr">
       <body className={`${inter.className} antialiased`}>
         {children}
+        <div id="drawer" />
       </body>
     </html>
   );

@@ -1,63 +1,56 @@
 'use client'
 
-import Link from "next/link";
-import Image from 'next/image';
-import { useContext, useEffect, useRef } from "react";
-import menuMock from '__mocks__/menuMock.json';
-import { DrawerContext } from "@/contexts/drawerContext";
+import { useContext, useEffect, useRef, useState } from 'react';
+import { DrawerContext } from '@/app/contexts/DrawerContext';
+import ClientOnlyPortal from '@/components/ClientOnlyPortal';
 
-export default function Drawer() {
+interface DrawerProps {
+    children?: React.ReactNode;
+}
 
-    const { toggleDrawer, setToggleDrawer } = useContext(DrawerContext);
+export default function Drawer({ children }: DrawerProps) {
+
+    const { setToggleDrawer } = useContext(DrawerContext);
+    const [loading, setLoading] = useState(false);
     const drawerRef = useRef<HTMLDivElement>(null);
 
-    let drawerClass = toggleDrawer ? 
+    let drawerClass = loading ?
         // Open
-        'absolute top-0 bg-white shadow-2xl w-72 min-h-screen overflow-y-auto transition-transform transform ease-in-out duration-300' 
+        'absolute z-50 top-0 bg-white shadow-2xl w-4/5 md:w-96 min-h-screen overflow-y-auto transition-transform transform ease-in-out duration-300'
         :
         // Close
-        'absolute top-0 bg-white w-72 min-h-screen overflow-y-auto transition-transform transform -translate-x-full ease-in-out duration-300';
+        'absolute z-50 top-0 bg-white w-4/5 md:w-96 min-h-screen overflow-y-auto transition-transform transform -translate-x-full ease-in-out duration-300';
 
     useEffect(() => {
 
         const handleClickOutside = (event: MouseEvent) => {
-          if (drawerRef.current && !drawerRef.current.contains(event.target as Node)) {
-            setToggleDrawer(false);
-          }
+            if (drawerRef.current && !drawerRef.current.contains(event.target as Node)) {
+                setLoading(false);
+                setTimeout(() => setToggleDrawer(false), 300);
+            }
         };
 
         document.addEventListener('mousedown', handleClickOutside);
-      
+
+        setTimeout(() => setLoading(true), 200);
+
         return () => {
-          document.removeEventListener('mousedown', handleClickOutside);
+            document.removeEventListener('mousedown', handleClickOutside);
         };
 
-      }, [setToggleDrawer]);
-
-    const menuData = menuMock;
+    }, [setToggleDrawer]);
 
     return (
-        <div 
-            className={drawerClass}
-            id="sidebar"
-            ref={drawerRef}
-        >
-            <div className="p-4">
-                <h1 className="text-2xl font-semibold">Menu</h1>
-                <ul className="mt-4">
-                    {menuData.map((menu) => (
-                        <li key={menu.code} className="mb-2 flex gap-3">
-                            <Image
-                                width="40"
-                                height="40"
-                                src={menu.picto}
-                                alt={menu.name}
-                            />
-                            <Link href={menu.url} className="block hover:text-red-400">{menu.name}</Link>
-                        </li>
-                    ))}
-                </ul>
+        <ClientOnlyPortal selector="#drawer">
+            <div
+                className={drawerClass}
+                id="sidebar"
+                ref={drawerRef}
+            >
+                <div className="p-4">
+                    {children}
+                </div>
             </div>
-        </div>
+        </ClientOnlyPortal>
     )
 }
