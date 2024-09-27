@@ -15,7 +15,9 @@ async function fetchContent() {
                 accept: 'application/json',
                 'Content-Type': 'application/json',
             },
-            cache: 'no-store',
+            next: { 
+                revalidate: 120 
+            },
         });
 
         if (!response.ok) {
@@ -32,7 +34,7 @@ async function fetchContent() {
     }
 }
 
-export default function Banner() {
+export default function LoadCmsComponents() {
 
     const data = use(fetchContent());
 

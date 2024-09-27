@@ -25,14 +25,14 @@ export default function Drawer({ children }: DrawerProps) {
 
         const handleClickOutside = (event: MouseEvent) => {
             if (drawerRef.current && !drawerRef.current.contains(event.target as Node)) {
-                setLoading(false);
-                setTimeout(() => setToggleDrawer(false), 300);
+                setLoading(() => false);
+                setTimeout(() => setToggleDrawer(() => false), 300);
             }
         };
 
         document.addEventListener('mousedown', handleClickOutside);
 
-        setTimeout(() => setLoading(true), 200);
+        setTimeout(() => setLoading(() => true), 200);
 
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);

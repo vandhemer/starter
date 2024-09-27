@@ -24,7 +24,7 @@ export default function PushBanner({ banner }: BannerProps) {
                     <p className="max-w-lg uppercase text-white text-2xl">
                         {banner.banner_title}
                     </p>
-                    <h1 className="uppercase font-extrabold text-white text-[128px]">
+                    <h1 className="uppercase font-extrabold text-white text-[96px] leading-tight">
                         <strong className="block font-extrabold text-yellow-100">-40%</strong>
                     </h1>
                     <p className="max-w-lg text-white text-2xl">

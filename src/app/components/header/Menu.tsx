@@ -10,15 +10,16 @@ import dynamic from 'next/dynamic';
 export default function Menu() {
 
     const { toggleDrawer, setToggleDrawer } = useContext(DrawerContext);
-    const MenuDrawer = dynamic(() => import ('@/components/header/drawer/MenuDrawer'));
 
-    function openMenu() {
-        setToggleDrawer(!toggleDrawer);
+    const MenuDrawer = dynamic(() => import ('@/components/header/drawer/MenuDrawer'), { ssr: true });
+
+    function handleOpenMenu() {
+        setToggleDrawer((toggle) => !toggle);
     }
 
     return (
         <div className="menu flex self-center place-self-end md:place-self-start cursor-pointer select-none block md:py-3 [grid-area:menu]">
-            <div onClick={openMenu} className="flex md:text-white md:bg-black md:rounded-3xl md:p-3">
+            <div onClick={handleOpenMenu} className="flex md:text-white md:bg-black md:rounded-3xl md:p-3">
                 <Image
                     priority
                     src={iconMenu}
