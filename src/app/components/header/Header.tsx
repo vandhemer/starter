@@ -1,11 +1,9 @@
 import Menu from "@/components/header/Menu";
 import Logo from "@/components/header/Logo";
 import Image from 'next/image';
-import Link from 'next/link';
 
 import iconLogin from '@/public/assets/icons/login.svg';
 import iconCart from '@/public/assets/icons/cart.svg';
-import iconMenu from '@/public/assets/icons/menu-burger.svg';
 import Searchbar from "@/components/header/Searchbar";
 
 export default function Header({ isHeaderTransparent = false }) {
@@ -13,7 +11,7 @@ export default function Header({ isHeaderTransparent = false }) {
     let headerCssClass = "w-full z-30 top-0 py-1";
 
     if(isHeaderTransparent) {
-        headerCssClass += " bg-gradient-to-b from-black/60 via-transparent via-100%";
+        headerCssClass += " drop-shadow-md text-white bg-gradient-to-b from-black/40 via-transparent via-100%";
     }
     
     return (
@@ -39,34 +37,10 @@ export default function Header({ isHeaderTransparent = false }) {
                         />
                     </a>
                 </div>
-                <div className="menu flex self-center place-self-end md:place-self-start cursor-pointer block md:py-3 [grid-area:menu]">
-                    <div className="flex md:text-white md:bg-black md:rounded-3xl md:p-3">
-                        <Image
-                            priority
-                            src={iconMenu}
-                            alt="Menu"
-                            className="md:[filter:invert(100%)]"
-                        />
-                        <span className="pl-3 hidden md:flex">
-                            Produits
-                        </span>
-                    </div>
-                    <ul className="hidden md:flex md:self-center">
-                        <li>
-                            <Link className="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="/">Nos promotions</Link>
-                        </li>
-                        <li>
-                            <Link className="inline-block no-underline hover:text-black hover:underline py-2 px-4 text-red-500" href="/about">Soldes</Link>
-                        </li>
-                        <li>
-                            <Link className="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="/about">Cuisines</Link>
-                        </li>
-                    </ul>
-                </div>
+                <Menu />
                 <div className="search py-3 [grid-area:search]">
                     <Searchbar />
                 </div>
-                <Menu />
             </div>
         </header>
     )

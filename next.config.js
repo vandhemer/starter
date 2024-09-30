@@ -30,13 +30,25 @@ const config = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'media.conforama.fr',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   reactStrictMode: false,
+  async rewrites() {
+    return [
+      {
+        source: "/:slug*/p/:code", destination: "/products/:slug*/:code" ,
+      },
+    ]
+  },
 };
 
-module.exports = config
-// process.env.NODE_ENV === "development" ? config : withPWA(config);
+
 
 module.exports = {
   async rewrites() {
@@ -50,7 +62,9 @@ module.exports = {
  
 }
 
+//module.exports =  process.env.NODE_ENV === "development" ? config : withPWA(config);
 
+module.exports =  config ;
 
 // const withBundleAnalyzer = require('@next/bundle-analyzer')({
 //   enabled: process.env.ANALYZE === 'true',

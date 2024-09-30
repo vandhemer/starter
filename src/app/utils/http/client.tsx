@@ -20,7 +20,7 @@ export class Client {
       },
     };
 
-    if (process.env.GRAVITEE_API_KEY) {
+    if (config.headers && process.env.GRAVITEE_API_KEY) {
       config.headers["X-Gravitee-Api-Key"] = process.env.GRAVITEE_API_KEY;
     }
 

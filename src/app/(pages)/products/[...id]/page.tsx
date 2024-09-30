@@ -1,12 +1,12 @@
+'use server'
 import { CProduct } from '@/app/models/cproduct';
 import { getDictionary } from '@/app/[lang]/dictionaries';
 import client from '@/utils/http/client';
 import { redirect, RedirectType } from 'next/navigation';
+//import { NextResponse, NextRequest } from 'next/server'
 import { UrlBuilder } from '@/app/utils/UrlBuilder';
 
-export async function generateStaticParams() {
-  return [];
-}
+
 
 
 export default async function Page({ params }: { params: { id: string[] } }) {
@@ -21,14 +21,16 @@ export default async function Page({ params }: { params: { id: string[] } }) {
   } catch (error: any) {
     console.error(error.message);
   }
-  
-  console.log('before......'+productId.slice(0, -1).join('/') +/p/ + productId[productId.length - 1])
-
+  //url relative
+  //api retourne 301 
   if(product.slug.substr(24) != '/'+productId.slice(0, -1).join('/') +/p/ + productId[productId.length - 1])
   {
     const newUrl=UrlBuilder.buildProductUrl(product.slug.substr(24),productId[productId.length - 1]);
-    console.log('new.....'+newUrl);
-    redirect(newUrl);
+    //
+    console.log('redirect here *****************')
+    //permanentRedirect(newUrl);
+    redirect(newUrl,RedirectType.push);
+    
   }
   
   if (!product) {

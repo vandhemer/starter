@@ -1,12 +1,13 @@
-import { Banner as BannerModel} from "@/models/cms/component";
 import Image from 'next/image';
 import { use } from "react";
 import { Page } from "@/models/cms/pages";
+import TextLoading from "@/skeletons/TextLoading";
+
+export const fetchCache = 'default-no-store';
 
 async function fetchContent() {
 
     let data: Page;
-    let banner: BannerModel;
 
     try {
         const response = await fetch(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/cms/Home', {
@@ -21,7 +22,8 @@ async function fetchContent() {
             throw new Error(`Response status: ${response.status}`);
         }
 
-        return await response.json();
+        data = await response.json();
+        return data.page_components[0].hero_banner;
    
     }
 
@@ -33,13 +35,12 @@ async function fetchContent() {
 export default function Banner() {
 
     const data = use(fetchContent());
-    let banner = data.page_components[0].hero_banner;
 
-    if (!banner) {
-        return <div>Loading...</div>;
+    if (!data) {
+        return <TextLoading />;
     }
 
-    const { banner_image, banner_title } = banner;
+    const { banner_image, banner_title } = data;
 
     return (
         <div className="banner mx-auto text-center absolute overflow-hidden -z-10 top-0 w-full">
