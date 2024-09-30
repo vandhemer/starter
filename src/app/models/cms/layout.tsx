@@ -15,6 +15,15 @@ type EntryData = {
   $: AdditionalParam;
 }
 
+type AutopromoData = {
+  autopromo_content: string;
+  background_color: string;
+}
+
+export type Autopromo = {
+  autopromo: AutopromoData[];
+}
+
 type Announcement = {
   show_announcement: boolean;
   announcement_text: string;
@@ -68,15 +77,16 @@ export type Posts = {
 
 
 export type HeaderProps = {
-  locale:string;
+  locale: string;
   logo: Image;
   navigation_menu:[List]
-  notification_bar: Announcement;
+  notification_bar: Autopromo;
   title: string;
   uid: string;
   social: Social;
   navigation: Navigation;
   copyright: string;
+  isHeaderTransparent: boolean;
   $: AdditionalParam;
 }
 

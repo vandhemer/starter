@@ -2,7 +2,7 @@
 
 import { useContext } from 'react';
 import { DrawerContext } from '@/app/contexts/DrawerContext';
-import iconMenu from '@/public/assets/icons/menu-burger.svg';
+import iconMenu from '@/assets/icons/menu-burger.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';

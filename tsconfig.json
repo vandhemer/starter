@@ -23,6 +23,7 @@
     "paths": {
       "@/app/*": ["./src/app/*"],
       "@/public/*": ["./public/*"],
+      "@/assets/*": ["./src/app/assets/*"],
       "@/components/*": ["./src/app/components/*"],
       "@/models/*": ["./src/app/models/*"],
       "@/styles/*": ["./src/app/styles/*"],

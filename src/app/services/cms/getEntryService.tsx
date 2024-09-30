@@ -2,7 +2,8 @@
 import getConfig from 'next/config';
 import { Page } from '@/models/cms/pages';
 import { addEditableTags } from '@contentstack/utils';
-import { getEntryByUrl } from '@/lib/contentstack-sdk';
+import { getEntryByUrl, getEntry } from '@/lib/contentstack-sdk';
+import { HeaderProps } from '@/app/models/cms/layout';
 
 
 const { publicRuntimeConfig } = getConfig();
@@ -22,4 +23,15 @@ export const fetchEntryByTitle = async (page_title: string): Promise<Page> => {
     liveEdit && addEditableTags(response[0], 'page', true);
 
     return response[0];
+};
+
+export const fetchHeaderRes = async (): Promise<HeaderProps> => {
+    const response = (await getEntry({
+        contentTypeUid: "header",
+        referenceFieldPath: ["notification_bar.autopromo"],
+        jsonRtePath: ["notification_bar"],
+    })) as HeaderProps[][];
+
+    liveEdit && addEditableTags(response[0][0], "header", true);
+    return response[0][0];
 };

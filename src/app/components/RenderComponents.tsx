@@ -20,5 +20,5 @@ export default function RenderComponents(props: RenderProps) {
                 }
             })}
         </div>
-    );
+    )
 }

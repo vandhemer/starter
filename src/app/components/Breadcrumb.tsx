@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import iconChevron from '../../../public/assets/icons/chevron.svg';
-import iconHome from '../../../public/assets/icons/home.svg';
+import iconChevron from '@/assets/icons/chevron.svg';
+import iconHome from '@/assets/icons/home.svg';
 
 export default function Breadcrumb() {
     return (

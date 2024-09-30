@@ -43,13 +43,13 @@ export default function LoadCmsComponents() {
     }
 
     return (
-        <div className="banner mx-auto text-center absolute overflow-hidden -z-10 top-0 w-full">
+        <>
             <RenderComponents
                 pageComponents={ data }
                 contentTypeUid='page'
                 entryUid='Home'
                 locale='fr-FR'
             />
-        </div>
+        </>
     )
 }
