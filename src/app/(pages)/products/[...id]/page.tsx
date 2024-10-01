@@ -1,13 +1,13 @@
 'use server'
 import { CProduct } from '@/app/models/cproduct';
 import { getDictionary } from '@/app/[lang]/dictionaries';
-import { client } from '@/utils/http/client';
+import { getFetcherServer } from '@/app/utils/http/server';
 import { redirect, RedirectType } from 'next/navigation';
 import { UrlBuilder } from '@/app/utils/UrlBuilder';
 
 async function getProduct(id: string) {
     try {
-        return await client.get<CProduct>(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/products/' + id);
+        return await getFetcherServer.get<CProduct>(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/products/' + id);
     } catch (error: any) {
         console.error(error.message);
     }

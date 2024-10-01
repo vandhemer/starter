@@ -1,9 +1,7 @@
 import Drawer from '@/components/Drawer';
 import Link from 'next/link';
 import Image from 'next/image';
-import useSWR from 'swr';
-import { fetcher } from '@/app/utils/http/client';
-import { useEffect } from 'react';
+import { useFetcherClient } from '@/app/utils/http/client';
 
 type MenuItem = {
     code: string;
@@ -12,22 +10,9 @@ type MenuItem = {
     url: string;
 };
 
-function useMenuDrawer() {
-    const { data, error, isLoading } = useSWR('https://run.mocky.io/v3/0777abe9-8d80-4972-8273-fc6faf239197', fetcher, {
-        revalidateIfStale: false,
-        revalidateOnFocus: false,
-        revalidateOnReconnect: false
-    });
-    return {
-        menuData: data,
-        isLoading,
-        isError: error
-    }
-}
-
 export default function MenuDrawer() {
 
-    const { menuData, isLoading, isError } = useMenuDrawer();
+    const { data, isLoading, isError } = useFetcherClient('https://run.mocky.io/v3/0777abe9-8d80-4972-8273-fc6faf239197');
 
     if (isError) return <Drawer>Echec du chargement</Drawer>
     if (isLoading) return <Drawer>Chargement...</Drawer>
@@ -36,7 +21,7 @@ export default function MenuDrawer() {
         <Drawer>
             <h1 className="text-2xl font-semibold">Menu</h1>
             <ul className="mt-4">
-                {menuData['univers'].map((menu: MenuItem) => (
+                {data['univers'].map((menu: MenuItem) => (
                     <li key={menu.code} className="mb-2 flex gap-3 items-center">
                         <Image
                             width="40"

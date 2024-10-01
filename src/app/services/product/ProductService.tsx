@@ -1,7 +1,7 @@
 // services/productService.ts
-import { client } from '@/utils/http/client';
+import { getFetcherServer } from '@/app/utils/http/server';
 
 export const fetchProductById = async (id: string): Promise<any> => {
-  const data = await client.get<any>(process.env.PRODUCT_API_URL + '/UEFSSVMgTkFUSU9O/fullproduct?productsCodes=' + id);
+  const data = await getFetcherServer.get<any>(process.env.PRODUCT_API_URL + '/UEFSSVMgTkFUSU9O/fullproduct?productsCodes=' + id);
   return data;
 };

@@ -1,46 +1,30 @@
-import Axios, { AxiosInstance, AxiosRequestConfig } from "axios";
-export class Client {
-  
-  private axiosInstance: AxiosInstance;
+import Axios from 'axios';
+import useSWR from 'swr';
 
-  constructor() {
-    this.axiosInstance = Axios.create();
-  }
-  
-  get<T>(path: string): Promise<T> {
-    return this._get<T>(path);
-  }
+/**
+ * Clientside fetch client
+ * @param url 
+ * @returns data
+ */
 
-  private async _get<T>(path: string): Promise<T> {
-
-    const config: AxiosRequestConfig = {
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-    };
-
-    if (config.headers && process.env.GRAVITEE_API_KEY) {
-      config.headers["X-Gravitee-Api-Key"] = process.env.GRAVITEE_API_KEY;
-    }
-
-    const res = await this.axiosInstance.get<T>(path, config).then(({ data }: any) => data);
-
-    return res;
-
-  }
-}
-
-export const client = new Client();
-
-export const fetcher = (url: string) => Axios(
+const axiosFetcher = (url: string) => Axios(
   {
     method: 'get',
     url: url,
-    headers: {
-      'X-Gravitee-Api-Key': process.env.GRAVITEE_API_KEY
-    }
   }
   ).then(function(res) {
     return res.data;
 })
+
+export function useFetcherClient (url: string) {
+  const { data, error, isLoading } = useSWR(url, axiosFetcher, {
+    revalidateIfStale: false,
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false
+  });
+  return {
+      data: data,
+      isLoading,
+      isError: error
+  }
+}
