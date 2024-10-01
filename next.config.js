@@ -2,6 +2,10 @@ const withPWA = require("next-pwa")({
   dest: "public",
 });
 
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
 const config = {
   publicRuntimeConfig: {
     // Will be available on both server and client
@@ -11,15 +15,11 @@ const config = {
     CONTENTSTACK_REGION: process.env.CONTENTSTACK_REGION || "us",
     CONTENTSTACK_ENVIRONMENT: process.env.CONTENTSTACK_ENVIRONMENT,
     CONTENTSTACK_PREVIEW_TOKEN: process.env.CONTENTSTACK_PREVIEW_TOKEN,
-    CONTENTSTACK_PREVIEW_HOST:
-      process.env.CONTENTSTACK_PREVIEW_HOST || "rest-preview.contentstack.com",
-    CONTENTSTACK_API_HOST:
-      process.env.CONTENTSTACK_API_HOST || "api.contentstack.io",
-    CONTENTSTACK_APP_HOST:
-      process.env.CONTENTSTACK_APP_HOST || "app.contentstack.com",
+    CONTENTSTACK_PREVIEW_HOST: process.env.CONTENTSTACK_PREVIEW_HOST || "rest-preview.contentstack.com",
+    CONTENTSTACK_API_HOST: process.env.CONTENTSTACK_API_HOST || "api.contentstack.io",
+    CONTENTSTACK_APP_HOST: process.env.CONTENTSTACK_APP_HOST || "app.contentstack.com",
     CONTENTSTACK_LIVE_PREVIEW: process.env.CONTENTSTACK_LIVE_PREVIEW || "true",
-    CONTENTSTACK_LIVE_EDIT_TAGS:
-      process.env.CONTENTSTACK_LIVE_EDIT_TAGS || "false",
+    CONTENTSTACK_LIVE_EDIT_TAGS: process.env.CONTENTSTACK_LIVE_EDIT_TAGS || "false",
   },
   experimental: { largePageDataBytes: 128 * 100000 },
   images: {
@@ -64,7 +64,6 @@ module.exports = {
 
 //module.exports =  process.env.NODE_ENV === "development" ? config : withPWA(config);
 
-module.exports =  config ;
 
 // const withBundleAnalyzer = require('@next/bundle-analyzer')({
 //   enabled: process.env.ANALYZE === 'true',
@@ -72,3 +71,8 @@ module.exports =  config ;
 
 // module.exports = withBundleAnalyzer({})
 
+if(process.env.ANALYZE === 'true') {
+  module.exports = process.env.ANALYZE === 'true' ? withBundleAnalyzer({}) : '';
+} else {
+  module.exports = process.env.NODE_ENV === "development" ? config : withPWA(config);
+}

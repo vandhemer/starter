@@ -21,6 +21,11 @@ export default async function Page({ params }: { params: { id: string[] } }) {
   } catch (error: any) {
     console.error(error.message);
   }
+
+  if (!product) {
+    throw new Error(`Produit indisponible`);
+  }
+
   //url relative
   //api retourne 301 
   if(product.slug.substr(24) != '/'+productId.slice(0, -1).join('/') +/p/ + productId[productId.length - 1])
@@ -33,9 +38,7 @@ export default async function Page({ params }: { params: { id: string[] } }) {
     
   }
   
-  if (!product) {
-    throw new Error(`Produit indisponible`);
-  }
+ 
 
   return (
     <>

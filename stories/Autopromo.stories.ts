@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import AutoPromo from '@/components/autopromo/Autopromo';
+import AutoPromo from '@/app/components/cms/Autopromo';
 
 const meta = {
   title: 'Components/AutoPromo',
@@ -18,6 +18,13 @@ type Story = StoryObj<typeof meta>;
 
 export const Autopromo: Story = {
     args: {
-      text: "EXCLUSIVITE CONFORAMA.fr : Payez en 4 fois Carte bancaire"
+      autopromo: {
+        autopromo: [ 
+          {
+            autopromo_content: "EXCLUSIVITE CONFORAMA.fr : Payez en 4 fois Carte bancaire",
+            background_color: "#fff"
+          }
+        ]
+      }
     },
 };

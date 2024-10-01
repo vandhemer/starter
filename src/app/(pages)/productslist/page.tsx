@@ -1,5 +1,9 @@
 "use client";
 
-export default function Page() {
-    return <h1>Hello buddy !</h1>
+export default function ProductList() {
+    return (
+        <>
+            <h1>Hello buddy !</h1>
+        </>
+    )
 }

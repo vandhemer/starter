@@ -1,4 +1,4 @@
-import Banner from "@/components/Banner";
+import LoadCmsComponents from "@/components/LoadCmsComponents";
 import Layout from "@/components/Layout";
 import Header from "@/components/header/Header";
 import { Suspense } from "react";
@@ -11,9 +11,8 @@ export default function Homepage() {
     return (
         <Layout Header={<Header isHeaderTransparent = {true} />}>
             <Suspense fallback={<TextLoading />}>
-                <Banner />
+                <LoadCmsComponents />
             </Suspense>
         </Layout>
     )     
-
 }

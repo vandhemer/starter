@@ -1,5 +1,5 @@
-import { ProductMapper } from "@/app/mappers/ProductMapper/ProductMapper";
-import { getProductById } from "@/services/product/ProductService";
+import { ProductMapper } from '@/app/mappers/ProductMapper/ProductMapper';
+import { getProductById } from '@/services/product/ProductService';
 
 
 

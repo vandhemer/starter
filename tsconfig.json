@@ -23,6 +23,7 @@
     "paths": {
       "@/app/*": ["./src/app/*"],
       "@/public/*": ["./public/*"],
+      "@/assets/*": ["./src/app/assets/*"],
       "@/components/*": ["./src/app/components/*"],
       "@/models/*": ["./src/app/models/*"],
       "@/styles/*": ["./src/app/styles/*"],
@@ -32,6 +33,7 @@
       "@/mappers/*": ["./src/app/mappers/*"],
       "@/utils/*": ["./src/app/utils/*"],
       "@/api/*": ["./src/app/api/*"],
+      "@/lib/*": ["./src/app/lib/*"],
     },
     "plugins": [
       {
