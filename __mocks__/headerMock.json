@@ -1,0 +1,119 @@
+{
+  "uid": "bltf4039f08687181b9",
+  "_version": 4,
+  "locale": "en-us",
+  "ACL": {},
+  "_in_progress": false,
+  "created_at": "2024-09-02T14:12:36.410Z",
+  "created_by": "cs38cd1fb3872f3a72",
+  "logo": {
+    "_version": 1,
+    "is_dir": false,
+    "uid": "blt9d3f86fc9dd83ae2",
+    "ACL": {},
+    "content_type": "image/svg+xml",
+    "created_at": "2024-09-02T14:12:02.101Z",
+    "created_by": "cs38cd1fb3872f3a72",
+    "description": "",
+    "file_size": "11085",
+    "filename": "company-logo.svg",
+    "parent_uid": "blt06fb2a38f3be5b55",
+    "tags": [],
+    "title": "Company Logo",
+    "updated_at": "2024-09-02T14:12:02.101Z",
+    "updated_by": "cs38cd1fb3872f3a72",
+    "publish_details": {
+      "environment": "blt9ff15f1f6dd5ac10",
+      "locale": "en-us",
+      "time": "2024-09-02T14:12:20.201Z",
+      "user": "cs38cd1fb3872f3a72"
+    },
+    "url": "https://eu-images.contentstack.com/v3/assets/blt17a511522b72719d/blt9d3f86fc9dd83ae2/66d5c7b2edc72ee8f8281605/company-logo.svg"
+  },
+  "navigation_menu": [
+    {
+      "label": "Home",
+      "_metadata": {
+        "uid": "cs69550988926e85d9"
+      },
+      "page_reference": [
+        {
+          "uid": "blt9fe30dc0ce3d81ae",
+          "_content_type_uid": "page"
+        }
+      ]
+    },
+    {
+      "label": "About Us",
+      "_metadata": {
+        "uid": "cscf5318e5388812b4"
+      },
+      "page_reference": [
+        {
+          "uid": "blta6123345dd99f5bc",
+          "_content_type_uid": "page"
+        }
+      ]
+    },
+    {
+      "label": "Blog",
+      "_metadata": {
+        "uid": "cs32274bbf10a21bec"
+      },
+      "page_reference": [
+        {
+          "uid": "blt575859b0c131cc79",
+          "_content_type_uid": "page"
+        }
+      ]
+    },
+    {
+      "label": "Contact Us",
+      "_metadata": {
+        "uid": "cs46f9812a50d8309c"
+      },
+      "page_reference": [
+        {
+          "uid": "bltf6c1da70471c1467",
+          "_content_type_uid": "page"
+        }
+      ]
+    }
+  ],
+  "notification_bar": {
+    "autopromo": [
+      {
+        "_content_type_uid": "autopromo",
+        "uid": "blt9b74c8381e8ce830",
+        "_version": 5,
+        "locale": "en-us",
+        "ACL": {},
+        "_in_progress": false,
+        "autopromo_content": "Nouveau contenu",
+        "background_color": {},
+        "created_at": "2024-09-27T12:33:51.967Z",
+        "created_by": "cs38cd1fb3872f3a72",
+        "tags": [],
+        "title": "Soldes",
+        "updated_at": "2024-09-27T16:20:44.654Z",
+        "updated_by": "cs38cd1fb3872f3a72",
+        "publish_details": {
+          "time": "2024-09-27T16:20:49.069Z",
+          "user": "cs38cd1fb3872f3a72",
+          "environment": "blt9ff15f1f6dd5ac10",
+          "locale": "en-us"
+        }
+      }
+    ]
+  },
+  "tags": [],
+  "title": "Conforama",
+  "updated_at": "2024-09-27T12:33:56.059Z",
+  "updated_by": "cs38cd1fb3872f3a72",
+  "publish_details": {
+    "time": "2024-09-27T12:34:10.241Z",
+    "user": "cs38cd1fb3872f3a72",
+    "environment": "blt9ff15f1f6dd5ac10",
+    "locale": "en-us"
+  }
+}

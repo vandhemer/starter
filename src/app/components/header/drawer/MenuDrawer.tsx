@@ -1,8 +1,7 @@
 import Drawer from '@/components/Drawer';
-import menuMock from '__mocks__/menuMock.json';
 import Link from 'next/link';
 import Image from 'next/image';
-import { use } from 'react';
+import { useEffect, useState } from 'react';
 
 type MenuItem = {
     code: string;
@@ -31,8 +30,18 @@ async function fetchMenuContent() {
 
 export default function MenuDrawer() {
 
-    const data = Object.entries(use(fetchMenuContent()));
-    const menuData: MenuItem[] = data[0][1] as MenuItem[];
+    const [menuData, setMenuData] = useState<MenuItem | undefined>(undefined);
+
+    useEffect(() => {
+        fetchMenuContent()
+            .then(data => {
+                const menuData: MenuItem[] = Object.entries(data)[0][1] as MenuItem[];
+                setMenuData(menuData);
+            })
+            .catch(error => console.error(error));
+    }, []);
+
+    if (!menuData) return;
 
     return (
         <Drawer>
