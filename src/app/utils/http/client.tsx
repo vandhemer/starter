@@ -24,12 +24,23 @@ export class Client {
       config.headers["X-Gravitee-Api-Key"] = process.env.GRAVITEE_API_KEY;
     }
 
-    const res = await this.axiosInstance.get<T>(path, config).then(({ data }: any) =>data);
+    const res = await this.axiosInstance.get<T>(path, config).then(({ data }: any) => data);
 
     return res;
 
   }
 }
 
-const client = new Client();
-export default client;
+export const client = new Client();
+
+export const fetcher = (url: string) => Axios(
+  {
+    method: 'get',
+    url: url,
+    headers: {
+      'X-Gravitee-Api-Key': process.env.GRAVITEE_API_KEY
+    }
+  }
+  ).then(function(res) {
+    return res.data;
+})

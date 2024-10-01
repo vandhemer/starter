@@ -1,12 +1,12 @@
 import { ProductMapper } from '@/app/mappers/ProductMapper/ProductMapper';
-import { getProductById } from '@/services/product/ProductService';
+import { fetchProductById } from '@/services/product/ProductService';
 
 
 
 export const fetchCache = 'default-no-store';
 
 export async function GET( request: Request, { params }: { params: { id: string } } ) {
-  const product  = await getProductById(params.id);
+  const product  = await fetchProductById(params.id);
   const cproduct = ProductMapper.populate(product);
   return new Response(JSON.stringify(cproduct), {
     headers: { 'Content-Type': 'application/json' },

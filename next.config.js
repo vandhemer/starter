@@ -48,29 +48,6 @@ const config = {
   },
 };
 
-
-
-module.exports = {
-  async rewrites() {
-    return [
-      {
-        source: "/:slug*/p/:code", destination: "/products/:slug*/:code" ,
-      },
-    ]
-  },
-
- 
-}
-
-//module.exports =  process.env.NODE_ENV === "development" ? config : withPWA(config);
-
-
-// const withBundleAnalyzer = require('@next/bundle-analyzer')({
-//   enabled: process.env.ANALYZE === 'true',
-// })
-
-// module.exports = withBundleAnalyzer({})
-
 if(process.env.ANALYZE === 'true') {
   module.exports = process.env.ANALYZE === 'true' ? withBundleAnalyzer({}) : '';
 } else {

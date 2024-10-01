@@ -1,7 +1,9 @@
 import Drawer from '@/components/Drawer';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import useSWR from 'swr';
+import { fetcher } from '@/app/utils/http/client';
+import { useEffect } from 'react';
 
 type MenuItem = {
     code: string;
@@ -10,44 +12,31 @@ type MenuItem = {
     url: string;
 };
 
-export const fetchCache = 'default-no-store';
-
-async function fetchMenuContent() {
-
-    const response = await fetch('https://run.mocky.io/v3/72599e44-cc6e-480b-a245-4e2b1b33e368', {
-        headers: {
-            accept: 'application/json',
-            'Content-Type': 'application/json',
-        }
+function useMenuDrawer() {
+    const { data, error, isLoading } = useSWR('https://run.mocky.io/v3/0777abe9-8d80-4972-8273-fc6faf239197', fetcher, {
+        revalidateIfStale: false,
+        revalidateOnFocus: false,
+        revalidateOnReconnect: false
     });
-
-    if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
+    return {
+        menuData: data,
+        isLoading,
+        isError: error
     }
-
-    return await response.json();
 }
 
 export default function MenuDrawer() {
 
-    const [menuData, setMenuData] = useState<MenuItem | undefined>(undefined);
+    const { menuData, isLoading, isError } = useMenuDrawer();
 
-    useEffect(() => {
-        fetchMenuContent()
-            .then(data => {
-                const menuData: MenuItem[] = Object.entries(data)[0][1] as MenuItem[];
-                setMenuData(menuData);
-            })
-            .catch(error => console.error(error));
-    }, []);
-
-    if (!menuData) return;
+    if (isError) return <Drawer>Echec du chargement</Drawer>
+    if (isLoading) return <Drawer>Chargement...</Drawer>
 
     return (
         <Drawer>
             <h1 className="text-2xl font-semibold">Menu</h1>
             <ul className="mt-4">
-                {menuData.map((menu: MenuItem) => (
+                {menuData['univers'].map((menu: MenuItem) => (
                     <li key={menu.code} className="mb-2 flex gap-3 items-center">
                         <Image
                             width="40"

@@ -69,10 +69,10 @@
     "sonar-scanner": "^3.1.0",
     "storybook": "^8.2.9",
     "supertest": "^7.0.0",
+    "swr": "^2.2.5",
     "tailwindcss": "^3.4.10",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.2",
-    "web-vitals": "^4.2.3"
+    "typescript": "^5.6.2"
   }
 }

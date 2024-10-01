@@ -12,8 +12,8 @@ describe('Homepage', () => {
         window.fetch = fetchMock(cmsHomeMock);
         
         render(<ProductList />)
-        const heading = screen.getByRole('heading', { level: 1 })
-        expect(heading).toBeInTheDocument()
+        const heading = screen.getByRole('heading', { level: 1 });
+        expect(heading).toBeInTheDocument();
     })
 
 })
