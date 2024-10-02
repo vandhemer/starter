@@ -2,10 +2,38 @@
 import { CProduct } from '@/app/models/cproduct';
 import { getDictionary } from '@/app/[lang]/dictionaries';
 import { getFetcherServer } from '@/app/utils/http/server';
-import { redirect, RedirectType } from 'next/navigation';
+import { permanentRedirect, RedirectType } from 'next/navigation';
+import { Suspense } from "react";
 import { UrlBuilder } from '@/app/utils/UrlBuilder';
+import PageLoading from '@/skeletons/PageLoading';
+
+const dynamic = 'force-dynamic';
 
 async function getProduct(id: string) {
+
+    // try {
+    //     const response = await fetch(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/products/' + id, {
+    //         headers: {
+    //             accept: 'application/json',
+    //             'Content-Type': 'application/json',
+    //         },
+    //         next: { 
+    //             revalidate: 120 
+    //         },
+    //     });
+
+    //     if (!response.ok) {
+    //         throw new Error(`Response status: ${response.status}`);
+    //     }
+
+    //     return await response.json();
+   
+    // }
+
+    // catch (error: any) {
+    //     console.error(error.message);
+    // }
+
     try {
         return await getFetcherServer.get<CProduct>(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/products/' + id);
     } catch (error: any) {
@@ -48,12 +76,12 @@ export default async function Page({ params }: { params: { id: string[] } }) {
     if (product.slug.substr(24) != '/' + productId.slice(0, -1).join('/') + /p/ + productId[productId.length - 1]) {
 
         const newUrl = UrlBuilder.buildProductUrl(product.slug.substr(24), productId[productId.length - 1]);
-        redirect(newUrl, RedirectType.push);
+        permanentRedirect(newUrl, RedirectType.replace);
 
     }
 
     return (
-        <>
+        <Suspense fallback={<PageLoading />}>
             <section className="relative py-6">
                 <div className="w-full mx-auto px-4 sm:px-6 lg:px-0">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mx-auto max-md:px-2">
@@ -121,6 +149,6 @@ export default async function Page({ params }: { params: { id: string[] } }) {
                     </div>
                 </div>
             </section>
-        </>
+        </Suspense>
     );
 }

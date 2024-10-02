@@ -13,36 +13,39 @@ export default function Drawer({ children }: DrawerProps) {
     const { setToggleDrawer } = useContext(DrawerContext);
     const [loading, setLoading] = useState(false);
     const drawerRef = useRef<HTMLDivElement>(null);
-    const drawerBackgroundRef = useRef<HTMLDivElement>(null);
 
-    let drawerClass = loading ?
+    let drawerClass = 'z-50 top-0 bg-white w-4/5 md:w-96 min-h-screen overflow-y-auto transition-transform transform ease-in-out duration-300';
+    drawerClass += loading ?
         // Open
-        'z-50 top-0 bg-white shadow-2xl w-4/5 md:w-96 min-h-screen overflow-y-auto transition-transform transform ease-in-out duration-300'
+        ' shadow-2xl cursor-default'
         :
         // Close
-        'z-50 top-0 bg-white w-4/5 md:w-96 min-h-screen overflow-y-auto transition-transform transform -translate-x-full ease-in-out duration-300';
+        ' -translate-x-full';
 
-    let drawerBackgroundClass = loading ? 
+
+
+    let drawerBackgroundClass = 'absolute z-30 bg-black/50 top-0 left-0 w-full min-h-screen overflow-hidden transition-opacity';
+    drawerBackgroundClass += loading ? 
         // Open
-        'absolute z-30 bg-black/50 top-0 left-0 w-full min-h-screen transition-opacity'
+        ' cursor-pointer'
         :
         // Close
-        'absolute z-30 bg-black/50 top-0 left-0 w-full min-h-screen transition-opacity opacity-0';
+        ' opacity-0';
 
-    function handleClickOutside () {
-        setLoading(() => false);
-        setTimeout(() => setToggleDrawer(() => false), 300);
+    function handleClickOutside (event: React.MouseEvent<HTMLDivElement>) {
+        if (drawerRef.current && !drawerRef.current.contains(event.target as Node)) {
+            setLoading(false);
+            setTimeout(() => setToggleDrawer(false), 300);
+        }
     }
         
     useEffect(() => {
-
         setTimeout(() => setLoading(() => true), 300);
-
     }, [setToggleDrawer]);
 
     return (
         <ClientOnlyPortal selector="#drawer">
-            <div className={drawerBackgroundClass} ref={drawerBackgroundRef} onClick={handleClickOutside}>
+            <div className={drawerBackgroundClass} onClick={handleClickOutside}>
                 <div
                     className={drawerClass}
                     data-rnx="drawer"

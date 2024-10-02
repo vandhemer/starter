@@ -42,7 +42,8 @@ const config = {
   async rewrites() {
     return [
       {
-        source: "/:slug*/p/:code", destination: "/products/:slug*/:code" ,
+        source: "/:slug*/p/:code", 
+        destination: "/products/:slug*/:code",
       },
     ]
   },

@@ -5,13 +5,11 @@ import { DrawerContext } from '@/app/contexts/DrawerContext';
 import iconMenu from '@/assets/icons/menu-burger.svg';
 import Image from 'next/image';
 import Link from 'next/link';
-import dynamic from 'next/dynamic';
+import MenuDrawer from '@/components/header/drawer/MenuDrawer';
 
 export default function Menu() {
 
     const { toggleDrawer, setToggleDrawer } = useContext(DrawerContext);
-
-    const MenuDrawer = dynamic(() => import ('@/components/header/drawer/MenuDrawer'), { ssr: true });
 
     function handleOpenMenu() {
         setToggleDrawer((toggle) => !toggle);

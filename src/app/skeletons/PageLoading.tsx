@@ -1,7 +1,7 @@
-import ImageLoading from "@/app/skeletons/ImageLoading";
-import TextLoading from "@/app/skeletons/TextLoading";
+import ImageLoading from "@/skeletons/ImageLoading";
+import TextLoading from "@/skeletons/TextLoading";
 
-export default function Loading() {
+export default function ProductCardLoading() {
     return (
         <section className="relative py-6">
             <div className="w-full mx-auto px-4 sm:px-6 lg:px-0">
@@ -14,6 +14,7 @@ export default function Loading() {
                     </div>
                 </div>
             </div>
+            <span className="sr-only">Chargement en cours ...</span>
         </section>
-    );
+    )
 }
