@@ -1,8 +1,12 @@
-export interface ImageProduct {
-    imageType: string | null;
-    format: string | null;
+export interface Image {
+    imageType?: string;
+    format?: MediaFormat;
     url: string;
     altText: string;
-    galleryIndex: number | null;
 }
-  
+
+export interface MediaFormat {
+    width: number;
+    height: number;
+    absoluteUrl: string;
+}

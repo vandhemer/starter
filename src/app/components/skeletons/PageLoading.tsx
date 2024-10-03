@@ -1,5 +1,5 @@
-import ImageLoading from "@/skeletons/ImageLoading";
-import TextLoading from "@/skeletons/TextLoading";
+import ImageLoading from "@/app/components/skeletons/ImageLoading";
+import TextLoading from "@/app/components/skeletons/TextLoading";
 
 export default function ProductCardLoading() {
     return (

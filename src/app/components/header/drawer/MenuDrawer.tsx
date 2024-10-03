@@ -1,18 +1,12 @@
 import Drawer from '@/components/Drawer';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useFetcherClient } from '@/app/utils/http/client';
-
-type MenuItem = {
-    code: string;
-    name: string;
-    picto: string;
-    url: string;
-};
+import { useFetcherClientImmutable } from '@/app/hooks/useFetcherClientImmutable';
+import { MenuItem } from '@/models/cms/menu';
 
 export default function MenuDrawer() {
 
-    const { data, isLoading, isError } = useFetcherClient('https://run.mocky.io/v3/0777abe9-8d80-4972-8273-fc6faf239197');
+    const { data, isLoading, isError } = useFetcherClientImmutable('https://run.mocky.io/v3/0777abe9-8d80-4972-8273-fc6faf239197');
 
     if (isError) return <Drawer>Echec du chargement</Drawer>
     if (isLoading) return <Drawer>Chargement...</Drawer>

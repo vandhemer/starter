@@ -1,7 +1,7 @@
 import { use } from 'react';
 import { Page } from '@/models/cms/pages';
 import TextLoading from '@/skeletons/TextLoading';
-import RenderComponents from '@/components/RenderComponents';
+import RenderComponents from '@/components/cms/RenderComponents';
 
 export const fetchCache = 'default-no-store';
 

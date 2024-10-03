@@ -1,4 +1,7 @@
-import { CProduct, ProductAttributeType, Image, ProductPrice, ProductAttribute } from "@/models/cproduct";
+import { Product } from '@/app/models/product/product';
+import { ProductAttribute, ProductAttributeType } from "@/models/product/attributes";
+import { Image } from "@/models/product/imageproduct";
+import { ProductPrice } from "@/models/product/price";
 
 
 export const ProductMapper = {
@@ -8,9 +11,8 @@ export const ProductMapper = {
     populate(apiProduct: any) {
 
         let productItem = apiProduct[0];
-    
 
-        const product: CProduct =
+        const product: Product =
         {
             id: productItem.code,
             name: productItem.name,
@@ -24,7 +26,7 @@ export const ProductMapper = {
             numberOfReview: productItem.numberOfReview,
             slug: productItem.urlProduct,
             stock: productItem.availability,
-            refFournisseur: productItem.refFournisseur ,
+            refFournisseur: productItem.refFournisseur,
             createdAt: new Date(),
             updatedAt: new Date()
         }
@@ -76,6 +78,4 @@ export const ProductMapper = {
         return productPrice;
 
     }
-
-
 }

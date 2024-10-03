@@ -1,11 +1,11 @@
 'use server'
-import { CProduct } from '@/app/models/cproduct';
+import { Product } from '@/app/models/product/product';
 import { getDictionary } from '@/app/[lang]/dictionaries';
 import { getFetcherServer } from '@/app/utils/http/server';
 import { permanentRedirect, RedirectType } from 'next/navigation';
 import { Suspense } from "react";
 import { UrlBuilder } from '@/app/utils/UrlBuilder';
-import PageLoading from '@/skeletons/PageLoading';
+import PageLoading from '@/app/components/skeletons/PageLoading';
 
 const dynamic = 'force-dynamic';
 
@@ -35,7 +35,7 @@ async function getProduct(id: string) {
     // }
 
     try {
-        return await getFetcherServer.get<CProduct>(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/products/' + id);
+        return await getFetcherServer.get<Product>(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/products/' + id);
     } catch (error: any) {
         console.error(error.message);
     }
@@ -44,7 +44,7 @@ async function getProduct(id: string) {
 export async function generateMetadata({ params }: { params: { id: string[] } }) {
 
     const productId = params?.id;
-    let product: CProduct | undefined;
+    let product: Product | undefined;
 
     product = await getProduct(productId[productId.length - 1]);
  
@@ -63,7 +63,7 @@ export default async function Page({ params }: { params: { id: string[] } }) {
     const dict = await getDictionary('fr');
 
     const productId = params?.id;
-    let product: CProduct | undefined;
+    let product: Product | undefined;
 
     product = await getProduct(productId[productId.length - 1]);
 

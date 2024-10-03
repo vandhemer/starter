@@ -1,5 +1,4 @@
 import Axios from 'axios';
-import useSWR from 'swr';
 
 /**
  * Clientside fetch client
@@ -7,7 +6,7 @@ import useSWR from 'swr';
  * @returns data
  */
 
-const axiosFetcher = (url: string) => Axios(
+export const axiosFetcher = (url: string) => Axios(
   {
     method: 'get',
     url: url,
@@ -15,16 +14,3 @@ const axiosFetcher = (url: string) => Axios(
   ).then(function(res) {
     return res.data;
 })
-
-export function useFetcherClient (url: string) {
-  const { data, error, isLoading } = useSWR(url, axiosFetcher, {
-    revalidateIfStale: false,
-    revalidateOnFocus: false,
-    revalidateOnReconnect: false
-  });
-  return {
-      data: data,
-      isLoading,
-      isError: error
-  }
-}

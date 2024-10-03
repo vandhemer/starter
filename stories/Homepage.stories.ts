@@ -1,16 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
-import Header from '@/components/header/Header';
+import Homepage from '@/app/page';
 
 const meta = {
-  title: 'Components/Header',
-  component: Header,
+  title: 'Pages/Homepage',
+  component: Homepage,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
+    nextjs: {
+        appDirectory: true,
+    },
   },
   args: {},
-} satisfies Meta<typeof Header>;
+} satisfies Meta<typeof Homepage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -23,5 +25,12 @@ export const Autopromo: Story = {
         background_color: "#fff"
       }
     ]
+  },
+  parameters: {
+    nextjs: {
+      router: {
+        pathname: '/',
+      },
+    },
   },
 };

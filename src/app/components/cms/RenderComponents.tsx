@@ -1,4 +1,4 @@
-import PushBanner from '@/app/components/cms/PushBanner';
+import PushBanner from '@/components/cms/PushBanner';
 import { RenderProps } from '@/models/cms/component';
 
 export default function RenderComponents(props: RenderProps) {

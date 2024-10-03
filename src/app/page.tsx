@@ -1,4 +1,4 @@
-import LoadCmsComponents from "@/components/LoadCmsComponents";
+import LoadCmsComponents from "@/components/cms/LoadCmsComponents";
 import { Suspense } from "react";
 import TextLoading from "@/skeletons/TextLoading";
 
