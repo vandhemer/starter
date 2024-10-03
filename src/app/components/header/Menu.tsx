@@ -5,7 +5,7 @@ import { DrawerContext } from '@/app/contexts/DrawerContext';
 import iconMenu from '@/assets/icons/menu-burger.svg';
 import Image from 'next/image';
 import Link from 'next/link';
-import MenuDrawer from '@/components/header/drawer/MenuDrawer';
+import { MenuDrawerMemo } from '@/components/header/drawer/MenuDrawer';
 
 export default function Menu() {
 
@@ -30,16 +30,16 @@ export default function Menu() {
             </div>
             <ul className="hidden md:flex md:self-center">
                 <li>
-                    <Link className="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="/">Nos promotions</Link>
+                    <Link className="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="/productslist">Nos promotions</Link>
                 </li>
                 <li>
-                    <Link className="inline-block no-underline hover:text-black hover:underline py-2 px-4 text-red-500" href="/about">Soldes</Link>
+                    <Link className="inline-block no-underline hover:text-black hover:underline py-2 px-4 text-red-500" href="/products/770491">Redirection</Link>
                 </li>
                 <li>
-                    <Link className="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="/about">Cuisines</Link>
+                    <Link className="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="/tv-son-multimedia/gaming/chaise-gaming/fauteuil-gaming-bicolore-predator-antares/p/782896">Fauteuil</Link>
                 </li>
             </ul>
-            {toggleDrawer && <MenuDrawer />}
+            {toggleDrawer && <MenuDrawerMemo />}
         </div>
     )
 }

@@ -20,7 +20,7 @@ type Story = StoryObj<typeof meta>;
 export const Autopromo: Story = {
   args: {
     params: {
-        id: 'V27560942'
+        id: ['770491']
     }
   },
   parameters: {
