@@ -6,7 +6,7 @@ import Axios from 'axios';
  * @returns data
  */
 
-export const axiosFetcher = (url: string) => Axios(
+export const axiosClientFetcher = (url: string) => Axios(
   {
     method: 'get',
     url: url,

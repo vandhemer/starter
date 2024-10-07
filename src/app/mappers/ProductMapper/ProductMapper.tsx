@@ -56,7 +56,7 @@ export const ProductMapper = {
 
         const image: Image =
         {
-            url: apiProduct.primaryImages.zoom.url,
+            url: "https://" + apiProduct.primaryImages.zoom.url,
             format: undefined,
             imageType: "",
             altText: ""

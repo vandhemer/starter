@@ -1,9 +1,9 @@
 'use client'
 
-import { useContext, useEffect, useRef, useState } from 'react';
-import { DrawerContext } from '@/app/contexts/DrawerContext';
+import { useEffect, useRef } from 'react';
 import ClientOnlyPortal from '@/components/ClientOnlyPortal';
 import { useToggle } from '@/hooks/useToggle';
+import { useDrawer } from '@/hooks/useDrawer';
 
 interface DrawerProps {
     children?: React.ReactNode;
@@ -11,7 +11,7 @@ interface DrawerProps {
 
 export default function Drawer({ children }: DrawerProps) {
 
-    const { setToggleDrawer } = useContext(DrawerContext);
+    const { setToggleDrawer } = useDrawer();
     const [isLoading, setLoading] = useToggle();
     const drawerRef = useRef<HTMLDivElement>(null);
 

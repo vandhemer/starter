@@ -4,12 +4,14 @@ import TextLoading from "@/skeletons/TextLoading";
 
 export const dynamic = "force-dynamic";
 
-export default function Homepage() {
+export default function CmsPage({ params }: { params: { cmsPageId: string } }) {
+
+    const pageId = params?.cmsPageId;
 
     return (
         <Suspense fallback={<TextLoading />}>
             <LoadCmsComponents 
-                uid="Home" 
+                uid={pageId} 
                 page_components={[]}
                 locale={""}
                 url={""}
@@ -18,5 +20,5 @@ export default function Homepage() {
                 }} 
                 title={""} />
         </Suspense>
-    )     
+    )      
 }

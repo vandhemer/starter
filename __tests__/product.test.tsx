@@ -1,6 +1,5 @@
 import { createMocks } from 'node-mocks-http';
-//import { GET } from '../../../src/app/api/products/[id]/route'; 
-import { GET } from '@/api/products/[id]/route'
+import { GET } from '@/api/v1/products/[id]/route';
 
 import axios from 'axios';
 

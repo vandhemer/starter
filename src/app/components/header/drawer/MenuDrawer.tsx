@@ -3,13 +3,10 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useFetcherClientImmutable } from '@/app/hooks/useFetcherClientImmutable';
 import { MenuItem } from '@/models/cms/menu';
-import { memo } from 'react';
 
-export const MenuDrawerMemo = memo(function MenuDrawer() {
+export const MenuDrawer = function MenuDrawer() {
 
-    console.log('Memo Drawer')
-
-    const { data, isLoading, isError } = useFetcherClientImmutable('https://run.mocky.io/v3/0777abe9-8d80-4972-8273-fc6faf239197');
+    const { data, isLoading, isError } = useFetcherClientImmutable('http://localhost:3001/Menu');
 
     if (isError) return <Drawer>Echec du chargement</Drawer>
     if (isLoading) return <Drawer>Chargement...</Drawer>
@@ -32,4 +29,4 @@ export const MenuDrawerMemo = memo(function MenuDrawer() {
             </ul>
         </Drawer>
     )
-})
+}

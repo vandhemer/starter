@@ -1,11 +1,11 @@
 import useSWR from 'swr';
 import { axiosClientFetcher } from '@/utils/http/client';
 
-export function useFetcherClientImmutable(url: string) {
+export function useFetcherClient(url: string) {
     const { data, error, isLoading } = useSWR(url, axiosClientFetcher, {
-        revalidateIfStale: false,
-        revalidateOnFocus: false,
-        revalidateOnReconnect: false
+        revalidateIfStale: true,
+        revalidateOnFocus: true,
+        revalidateOnReconnect: true
     });
     return {
         data: data,

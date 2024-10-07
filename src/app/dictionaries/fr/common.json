@@ -1,7 +1,12 @@
 {
     "products": {
-      "cart": "Ajouter au panier",
-      "reviews": "avis",
-      "notfound": "Produit inconnu"
+        "cart": "Ajouter au panier",
+        "reviews": "avis",
+        "notfound": "Produit inconnu"
+    },
+    "not_found": {
+        "headline": "Oups",
+        "subtext": "La page que vous cherchez ne semble plus disponible.",
+        "returnButton": "Revenir à l'accueil"
     }
 }

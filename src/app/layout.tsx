@@ -4,12 +4,17 @@ import { inter } from "@/styles/fonts";
 import Header from "@/components/header/Header";
 import { DrawerProvider } from "@/app/contexts/DrawerContext";
 import { HeaderProps } from "@/models/cms/layout";
-import { Suspense } from "react";
-import PageLoading from '@/app/components/skeletons/PageLoading';
+import { NextSeo } from 'next-seo';
 
 export const metadata: Metadata = {
-    title: "Conforama",
-    description: "Site Web Conforama",
+    title: "Conforama : meuble, cuisine, électroménager, décoration",
+    description: "Conforama, achat en ligne de meuble et mobilier, cuisine, articles de décoration, électroménager, image et son, informatique. Tout pour l'équipement et ameublement de la maison à prix discount.",
+    keywords: [
+        "Conforama, achat en ligne de meuble et magasins"
+    ],
+    alternates: {
+        canonical: "https://www.conforama.fr"
+    }
 };
 
 async function getHeaderContent() {
@@ -51,9 +56,7 @@ export default async function RootLayout({
                     <main className="relative">
                         <div className="w-full mx-auto relative container">
                             <Header autopromo={headerData?.notification_bar?.autopromo || []} />
-                            <Suspense fallback={<PageLoading />}>
-                                {children}
-                            </Suspense>
+                            {children}
                         </div>
                     </main>
                 </DrawerProvider>
