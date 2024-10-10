@@ -4,7 +4,6 @@ import { inter } from "@/styles/fonts";
 import Header from "@/components/header/Header";
 import { DrawerProvider } from "@/app/contexts/DrawerContext";
 import { HeaderProps } from "@/models/cms/layout";
-import { NextSeo } from 'next-seo';
 
 export const metadata: Metadata = {
     title: "Conforama : meuble, cuisine, électroménager, décoration",
