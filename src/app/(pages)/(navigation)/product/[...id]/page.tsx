@@ -92,8 +92,10 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
         throw new Error(`Produit indisponible`);
     }
 
-    //url relative
-    //api retourne 301 
+    /** 
+     * Redirect to product slug in case of hiting the page with /product/{...id}
+     */
+
     if (product.slug !== '/' + productId.slice(0, -1).join('/') + /p/ + productId[lastProductIdPath]) {
         const newUrl = UrlBuilder.buildProductUrl(product.slug, productId[lastProductIdPath]);
         permanentRedirect(newUrl, RedirectType.replace);

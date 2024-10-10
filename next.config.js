@@ -43,7 +43,7 @@ const config = {
     return [
       {
         source: "/:slug*/p/:code", 
-        destination: "/products/:slug*/:code",
+        destination: "/product/:slug*/:code",
       },
     ]
   },

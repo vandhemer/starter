@@ -1,5 +1,5 @@
+import ProductDetailPage from '@/app/(pages)/(navigation)/product/[...id]/page';
 import type { Meta, StoryObj } from '@storybook/react';
-import ProductDetailPage from '@/app/(pages)/products/[...id]/page';
 
 const meta = {
   title: 'Pages/Productpage',
