@@ -1,13 +1,13 @@
-'use server'
-
-import { Product, ProductList } from '@/models/product/product';
+import { Product } from '@/models/product/product';
 import ProductCard from '@/app/components/product/ProductCard';
 import { Suspense } from 'react';
 import PageLoading from '@/app/components/skeletons/PageLoading';
 
+export const dynamic = 'force-dynamic';
+
 async function getProductsList() {
     try {
-        const response = await fetch('http://localhost:3000/api/v1/products/list', {
+        const response = await fetch(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/v1/products/list', {
             headers: {
                 accept: 'application/json',
                 'Content-Type': 'application/json',

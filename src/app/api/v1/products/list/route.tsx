@@ -1,9 +1,10 @@
 import { ProductMapper } from '@/mappers/ProductMapper/ProductMapper';
 import { fetchProductListById } from '@/services/product/ProductListService';
-import { Product, ProductList } from '@/models/product/product';
+import { Product } from '@/models/product/product';
 import { fetchProductById } from '@/services/product/ProductService';
 
 export const fetchCache = 'default-no-store';
+export const dynamic = "force-dynamic";
 
 export async function GET(request: Request) {
 
