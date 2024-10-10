@@ -22,6 +22,7 @@ export default async function ProductCard(product: Product) {
                     className="p-8 rounded-t-lg"
                     width="800"
                     height="600"
+                    loading="lazy"
                 />
             </Link>
             <div className="px-5 pb-5">

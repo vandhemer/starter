@@ -23,7 +23,7 @@ export const MenuDrawer = function MenuDrawer() {
                             src={menu.picto}
                             alt={menu.name}
                         />
-                        <Link href={menu.url} className="block hover:text-red-400">{menu.name}</Link>
+                        <Link href={menu.url} prefetch={false} className="block hover:text-red-400">{menu.name}</Link>
                     </li>
                 ))}
             </ul>

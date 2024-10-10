@@ -10,7 +10,7 @@ export default async function NotFound() {
 
     return (
         <div className="relative flex content-center justify-center">
-            <div className="flex flex-col bottom-20 left-40 absolute">
+            <div className="flex flex-col lg:bottom-20 lg:left-40 absolute">
                 <h2 className="text-[72px] font-bold">{dict.not_found.headline}</h2>
                 <span className="pb-4">{dict.not_found.subtext}</span>
                 <button className="w-72 group transition-all duration-500 p-4 rounded-full text-white bg-red-500 hover:bg-red-100 hover:text-black hover:shadow-sm hover:shadow-red-300">

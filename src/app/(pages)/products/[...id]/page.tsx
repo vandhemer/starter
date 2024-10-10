@@ -112,6 +112,7 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
                                     className="max-lg:mx-auto lg:ml-auto h-full object-fit"
                                     width="800"
                                     height="600"
+                                    loading="lazy"
                                 />  
                             </div>
                         </div>
