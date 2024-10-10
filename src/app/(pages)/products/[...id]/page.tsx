@@ -6,6 +6,8 @@ import { UrlBuilder } from '@/app/utils/UrlBuilder';
 import { Suspense } from 'react';
 import PageLoading from '@/skeletons/PageLoading';
 import Image from 'next/image';
+import Button from '@/components/Button';
+import Stars from '@/app/components/Stars';
 
 async function getProduct(id: string) {
     try {
@@ -80,9 +82,11 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
     const dict = await getDictionary('fr');
 
     const productId = params?.id;
+    const lastProductIdPath = productId.length - 1;
+
     let product: Product | undefined;
 
-    product = await getProduct(productId[productId.length - 1]);
+    product = await getProduct(productId[lastProductIdPath]);
 
     if (!product) {
         throw new Error(`Produit indisponible`);
@@ -90,8 +94,8 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
 
     //url relative
     //api retourne 301 
-    if (product.slug.substr(24) != '/' + productId.slice(0, -1).join('/') + /p/ + productId[productId.length - 1]) {
-        const newUrl = UrlBuilder.buildProductUrl(product.slug.substr(24), productId[productId.length - 1]);
+    if (product.slug !== '/' + productId.slice(0, -1).join('/') + /p/ + productId[lastProductIdPath]) {
+        const newUrl = UrlBuilder.buildProductUrl(product.slug, productId[lastProductIdPath]);
         permanentRedirect(newUrl, RedirectType.replace);
     }
 
@@ -121,14 +125,15 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
                                         {product.price.basicPrice}€
                                     </h6>
                                     <div className="flex items-center gap-2">
+                                        <Stars rate={product.ratingReview} />
                                         <span className="pl-2 font-normal leading-7 text-gray-500 text-sm">
-                                            {product.numberOfReview} {dict.products.reviews}
+                                            {product.numberOfReview && `${product.numberOfReview} ${dict.products.reviews}`}
                                         </span>
                                     </div>
                                 </div>
                                 <ul className="grid gap-y-4 mb-8">
                                     {product.attributes.map((carac, index) => (
-                                        <li key={`${product.id}-${index}`} className="flex items-center gap-3">
+                                        <li key={`${product?.id}-${index}`} className="flex items-center gap-3">
                                             <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <rect width="26" height="26" rx="13" fill="#000" />
                                                 <path
@@ -157,9 +162,9 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
                                             />
                                         </svg>
                                     </button>
-                                    <button className="text-center w-full px-5 py-4 rounded-3xl bg-red-500 flex gap-2 items-center justify-center font-semibold text-lg text-white shadow-sm transition-all duration-500 hover:bg-red-700 hover:shadow-red-400">
-                                        {dict.products.cart}
-                                    </button>
+                                    <Button>
+                                       {dict.products.cart}
+                                    </Button>
                                 </div>
                             </div>
                         </div>

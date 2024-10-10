@@ -10,7 +10,7 @@ import { Autopromo } from '@/app/models/cms/layout';
 
 export default function Header(props: Autopromo) {
         
-    let headerCssClass = 'w-full z-30 top-0 py-1';
+    let headerCssClass = 'sticky bg-white w-full z-30 top-0 py-1';
 
     // if(headerTransparent) {
     //     headerCssClass += ' drop-shadow-md text-white bg-gradient-to-b from-black/40 via-transparent via-100%';

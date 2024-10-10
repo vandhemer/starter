@@ -8,7 +8,6 @@ import { useDrawer } from '@/hooks/useDrawer';
 interface DrawerProps {
     children?: React.ReactNode;
 }
-
 export default function Drawer({ children }: DrawerProps) {
 
     const { setToggleDrawer } = useDrawer();
@@ -23,8 +22,8 @@ export default function Drawer({ children }: DrawerProps) {
         // Close
         ' -translate-x-full';
 
-    let drawerBackgroundClass = 'absolute z-30 bg-black/50 top-0 left-0 w-full min-h-screen overflow-hidden transition-opacity';
-    drawerBackgroundClass += isLoading ? 
+    let drawerBackgroundClass = 'fixed z-30 bg-black/50 top-0 left-0 w-full min-h-screen overflow-hidden transition-opacity';
+    drawerBackgroundClass += isLoading ?
         // Open
         ' cursor-pointer'
         :

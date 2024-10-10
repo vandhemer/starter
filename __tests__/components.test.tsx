@@ -3,30 +3,40 @@
  */
 
 import React from 'react';
-import { render, fireEvent, renderHook, getByText } from '@testing-library/react';
-import Drawer from '../src/app/components/Drawer';
-import { useDrawer } from '../src/app/hooks/useDrawer';
-import { useToggle } from '../src/app/hooks/useToggle';
+import { render } from '@testing-library/react';
+import Stars from '@/components/Stars';
 
+describe('<Stars />', () => {
+    it('renders the correct number of stars based on the rate prop', () => {
+        const { getAllByTestId } = render(<Stars rate={3} />);
 
-describe('Drawer Component', () => {
-    it('should render correctly', () => {
-        const {result} = renderHook(() => useToggle(false));
+        // Check if there are 5 stars in total
+        expect(getAllByTestId('star')).toHaveLength(5);
 
-        const { getByText } = render(<Drawer>Test Child</Drawer>);
-        const childElement = getByText('Test Child');
-        expect(childElement).toBeInTheDocument();
+        // Check if the first 3 stars have the 'text-yellow-300' class
+        for (let i = 0; i < 3; i++) {
+            expect(getAllByTestId('star')[i]).toHaveClass('text-yellow-300');
+        }
+
+        // Check if the remaining 2 stars have the 'text-gray-300' class
+        for (let i = 3; i < 5; i++) {
+            expect(getAllByTestId('star')[i]).toHaveClass('text-gray-300');
+        }
     });
 
-    // it('should close the drawer when clicking outside', () => {
-    //     const setToggleDrawer = jest.fn();
-    //     useDrawer.mockReturnValue({ setToggleDrawer });
-    //     useToggle.mockReturnValue([true, jest.fn()]);
+    it('renders all stars as gray when rate is 0', () => {
+        const { getAllByTestId } = render(<Stars rate={0} />);
 
-    //     const { getByTestId } = render(<Drawer>Test Child</Drawer>);
-    //     const drawerBackground = getByTestId('drawer-background');
+        for (const star of getAllByTestId('star')) {
+            expect(star).toHaveClass('text-gray-300');
+        }
+    });
 
-    //     fireEvent.click(drawerBackground);
-    //     expect(setToggleDrawer).toHaveBeenCalledWith(false);
-    // });
+    it('renders all stars as yellow when rate is 5', () => {
+        const { getAllByTestId } = render(<Stars rate={5} />);
+
+        for (const star of getAllByTestId('star')) {
+            expect(star).toHaveClass('text-yellow-300');
+        }
+    });
 });

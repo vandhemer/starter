@@ -10,10 +10,9 @@ export const ProductMapper = {
 
     populate(apiProduct: any) {
 
-        let productItem = apiProduct[0];
+        let productItem = apiProduct;
 
-        const product: Product =
-        {
+        const product: Product = {
             id: productItem.code,
             name: productItem.name,
             description: productItem.short_description,
@@ -24,12 +23,13 @@ export const ProductMapper = {
             images: [this.populateImagesForproduct(productItem)],
             attributes: this.populateAttributesForproduct(productItem),
             numberOfReview: productItem.numberOfReview,
-            slug: productItem.urlProduct,
+            ratingReview: productItem.productNote,
+            slug: productItem.urlProduct.replace('https://www.conforama.fr', ''),
             stock: productItem.availability,
             refFournisseur: productItem.refFournisseur,
             createdAt: new Date(),
             updatedAt: new Date()
-        }
+        };
 
         return product;
     },

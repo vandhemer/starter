@@ -6,7 +6,7 @@ import { MenuItem } from '@/models/cms/menu';
 
 export const MenuDrawer = function MenuDrawer() {
 
-    const { data, isLoading, isError } = useFetcherClientImmutable('http://localhost:3001/Menu');
+    const { data, isLoading, isError } = useFetcherClientImmutable('https://run.mocky.io/v3/0546cd09-5851-4022-959e-ca8335b3b965');
 
     if (isError) return <Drawer>Echec du chargement</Drawer>
     if (isLoading) return <Drawer>Chargement...</Drawer>

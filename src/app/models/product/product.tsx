@@ -12,11 +12,15 @@ export interface Product {
   brand: string;
   images: Image[];
   attributes: ProductAttribute[];
+  ratingReview: number;
   numberOfReview: number;
   price: ProductPrice;
   stock: number;
-  /* TODO : to update */
   refFournisseur: string;
   createdAt: Date;
   updatedAt: Date;
+}
+
+export interface ProductList {
+  products: Product[];
 }
