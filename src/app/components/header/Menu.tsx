@@ -32,7 +32,7 @@ export default function Menu() {
                     <Link className="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="/productslist">Nos promotions</Link>
                 </li>
                 <li>
-                    <Link className="inline-block no-underline hover:text-black hover:underline py-2 px-4 text-red-500" href="/products/770491">Redirection</Link>
+                    <a className="inline-block no-underline hover:text-black hover:underline py-2 px-4 text-red-500" href="/products/770491">Redirection</a>
                 </li>
                 <li>
                     <Link className="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="/tv-son-multimedia/gaming/chaise-gaming/fauteuil-gaming-bicolore-predator-antares/p/782896">Fauteuil</Link>
