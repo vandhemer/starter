@@ -33,7 +33,7 @@ export default function Header(props: Autopromo) {
                                 alt="Login"
                             />
                         </a>
-                        <a className="pl-3 inline-block no-underline hover:text-black" href="#">
+                        <a className="pl-3 inline-block no-underline hover:text-black" href="/checkout/basket">
                             <Image
                                 priority
                                 src={iconCart}

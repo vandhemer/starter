@@ -4,7 +4,7 @@
 import { render, screen } from '@testing-library/react';
 import { fetchMock } from '__mocks__/fetchMock';
 import cmsHomeMock from '__mocks__/cmsHomeMock.json';
-import ProductList from '@/app/(pages)/productslist/page';
+import ProductList from '@/app/(pages)/(navigation)/productslist/page';
 
 describe('Homepage', () => {
 

@@ -11,7 +11,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'red' : '#db3832'
+        'red' : {
+          DEFAULT: '#db3832'
+        }
       },
     },
   },
