@@ -26,7 +26,7 @@ export default async function Guestlinks() {
                 />
                 <span className="hidden lg:block lg:pl-4">Connectez-vous</span>
             </a>
-            <Obfuscate linkText="#" element="span" href="/checkout/cart">
+            <Obfuscate linkText="#" href="/checkout/cart">
                 <Image
                     priority
                     src={iconCart}
