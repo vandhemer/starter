@@ -8,7 +8,7 @@ type BannerProps = {
 export default function PushBanner({ banner }: BannerProps) {
 
     return (
-        <div className="banner mx-auto text-center absolute overflow-hidden -z-10 top-0 w-full">
+        <div className="banner relative mx-auto text-center overflow-hidden -z-10 w-full">
             {banner.banner_image ?
                 <Image
                     src={ banner.banner_image.url }

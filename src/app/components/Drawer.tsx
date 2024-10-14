@@ -51,7 +51,7 @@ export default function Drawer({ children }: DrawerProps) {
                     data-rnx="drawer"
                     ref={drawerRef}
                 >
-                    <div className="p-4">
+                    <div className="p-4 md:p-12">
                         {children}
                     </div>
                 </div>

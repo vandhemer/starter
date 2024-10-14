@@ -25,8 +25,13 @@ export const Autopromo: Story = {
   },
   parameters: {
     nextjs: {
+      appDirectory: true,
+      navigation: {
+        segments: ['dashboard', 'analytics'],
+      },
       router: {
-        pathname: '/canape-salon-sejour/sejour/chaise/lot-de-4-chaises-salle-a-manger-scandinave-tissu-blanc-casse-pieds-noir/p/V27560942',
+        pathname: '/(pages)/(navigation)/product/[...id]',
+        asPath: ''
       },
     },
   },

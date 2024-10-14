@@ -15,7 +15,7 @@ export default function Menu() {
     }
 
     return (
-        <div className="menu flex self-center place-self-end md:place-self-start cursor-pointer select-none block md:py-3 [grid-area:menu]">
+        <div className="menu flex self-center cursor-pointer select-none block md:py-3 [grid-area:menu]">
             <div onClick={handleOpenMenu} className="flex md:text-white md:bg-black md:rounded-3xl md:p-3">
                 <Image
                     priority

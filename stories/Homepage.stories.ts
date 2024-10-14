@@ -19,18 +19,15 @@ type Story = StoryObj<typeof meta>;
 
 export const Autopromo: Story = {
   args: {
-    autopromo: [ 
-      {
-        autopromo_content: "EXCLUSIVITE CONFORAMA.fr : Payez en 4 fois Carte bancaire",
-        background_color: "#fff"
+    headerData: {
+      notification_bar: {
+        autopromo: [ 
+          {
+            autopromo_content: "EXCLUSIVITE CONFORAMA.fr : Payez en 4 fois Carte bancaire",
+            background_color: "#fff"
+          }
+        ]
       }
-    ]
-  },
-  parameters: {
-    nextjs: {
-      router: {
-        pathname: '/',
-      },
-    },
-  },
+    }
+  }
 };
