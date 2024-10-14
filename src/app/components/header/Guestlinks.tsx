@@ -7,7 +7,7 @@ import iconLogin from '@/assets/icons/login.svg';
 import iconCart from '@/assets/icons/cart.svg';
 import iconStore from '@/assets/icons/store.svg';
 
-export default async function Guestlinks() {
+export default function Guestlinks() {
     return (
         <div className="md:order-3 flex gap-8 items-center self-center place-self-end [grid-area:guestlinks]" id="nav-content">
             <a className="flex no-underline hover:text-black" href="#">

@@ -16,7 +16,7 @@ export default async function NotFound() {
                     <h2 className="text-[72px] font-bold">{dict.not_found.headline}</h2>
                     <span className="pb-4">{dict.not_found.subtext}</span>
                     <button className="w-72 group transition-all duration-500 p-4 rounded-full text-white bg-red-500 hover:bg-red-100 hover:text-black hover:shadow-sm hover:shadow-red-300">
-                        <Link href="/">{dict.not_found.returnButton}</Link>
+                        <Link href="/" prefetch={false}>{dict.not_found.returnButton}</Link>
                     </button>
                 </div>
                 <Image

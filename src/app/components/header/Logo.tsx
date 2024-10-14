@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function Logo() {
     return (
         <div className="logo justify-center content-center [grid-area:logo]">
-            <Link href="/">
+            <Link href="/" prefetch={false}>
                 <Image
                     priority
                     src={logoConforama}
