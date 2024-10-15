@@ -21,7 +21,7 @@ export const clientFetcher = async function (url: string) {
             throw new Error(`Response status: ${response.status}`);
         }
 
-        return await response.json();;
+        return await response.json();
     }
     catch (error: any) {
         console.error(error.message);
