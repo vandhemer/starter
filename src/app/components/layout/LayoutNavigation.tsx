@@ -1,5 +1,5 @@
+import { clientFetcher } from "@/utils/http/fetch";
 import Header from "@/components/header/Header";
-import { HeaderProps } from "@/models/cms/layout";
 import type { Metadata } from "next";
 import { use } from "react";
 
@@ -14,33 +14,9 @@ export const metadata: Metadata = {
     }
 };
 
-async function getHeaderContent() {
-
-    let data: HeaderProps;
-
-    try {
-        const response = await fetch(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/v1/cms/header', {
-            headers: {
-                accept: 'application/json',
-                'Content-Type': 'application/json',
-            }
-        });
-
-        if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-        }
-
-        data = await response.json();
-        return data;
-    }
-    catch (error: any) {
-        console.error(error.message);
-    }
-}
-
 export default function LayoutNavigation( { children }: { children: React.ReactNode }) {
 
-    const headerData = use(getHeaderContent());
+    const headerData = use(clientFetcher('/api/v1/cms/header'));
 
     return (
         <div className="w-full mx-auto relative container">

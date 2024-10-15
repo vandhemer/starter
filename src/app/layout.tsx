@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import { inter } from "@/styles/fonts";
-import { DrawerProvider } from "@/app/contexts/DrawerContext";
+import { Providers } from "@/contexts/Providers";
 
 export default async function RootLayout({
     children
@@ -11,12 +11,11 @@ export default async function RootLayout({
     return (
         <html lang="fr">
             <body className={`${inter.className} antialiased`}>
-                <DrawerProvider>
+                <Providers>
                     <main className="relative">
                         {children}
                     </main>
-                </DrawerProvider>
-                <div id="drawer" />
+                </Providers>
             </body>
         </html>
     );

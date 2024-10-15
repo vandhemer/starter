@@ -8,36 +8,14 @@ import PageLoading from '@/skeletons/PageLoading';
 import Image from 'next/image';
 import Button from '@/components/Button';
 import Stars from '@/app/components/Stars';
-
-async function getProduct(id: string) {
-    try {
-        const response = await fetch(process.env.NEXT_PUBLIC_HOSTED_URL + '/api/v1/products/' + id, {
-            headers: {
-                accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            next: {
-                revalidate: 120
-            },
-        });
-
-        if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-        }
-
-        return await response.json();
-    }
-    catch (error: any) {
-        console.error(error.message);
-    }
-}
+import { clientFetcher } from '@/utils/http/fetch';
 
 export async function generateMetadata({ params }: { params: { id: string[] } }) {
 
     const productId = params?.id;
     let product: Product | undefined;
 
-    product = await getProduct(productId[productId.length - 1]);
+    product = await clientFetcher('/api/v1/products/' + productId[productId.length - 1]);
 
     if (!product) {
         throw new Error(`Produit indisponible`);
@@ -86,7 +64,7 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
 
     let product: Product | undefined;
 
-    product = await getProduct(productId[lastProductIdPath]);
+    product = await clientFetcher('/api/v1/products/' + productId[productId.length - 1]);
 
     if (!product) {
         throw new Error(`Produit indisponible`);
