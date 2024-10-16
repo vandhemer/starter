@@ -17,7 +17,7 @@ export async function generateMetadata() {
 export default async function ProductListPage() {
 
     let productslist: any | undefined;
-    productslist = getProductList();
+    productslist = await getProductList();
 
     return (
         <Suspense fallback={<PageLoading />}>
