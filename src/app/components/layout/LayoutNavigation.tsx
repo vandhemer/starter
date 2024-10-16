@@ -1,7 +1,7 @@
-import { clientFetcher } from "@/utils/http/fetch";
 import Header from "@/components/header/Header";
 import type { Metadata } from "next";
 import { use } from "react";
+import { fetchHeaderRes } from "@/app/services/cms/getEntryService";
 
 export const metadata: Metadata = {
     title: "Conforama : meuble, cuisine, électroménager, décoration",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function LayoutNavigation( { children }: { children: React.ReactNode }) {
 
-    const headerData = use(clientFetcher('/api/v1/cms/header'));
+    const headerData = use(fetchHeaderRes());
 
     return (
         <div className="w-full mx-auto relative container">

@@ -9,13 +9,14 @@ import Image from 'next/image';
 import Button from '@/components/Button';
 import Stars from '@/app/components/Stars';
 import { clientFetcher } from '@/utils/http/fetch';
+import { getProduct } from '@/app/domain/product/getProduct';
 
 export async function generateMetadata({ params }: { params: { id: string[] } }) {
 
     const productId = params?.id;
     let product: Product | undefined;
 
-    product = await clientFetcher('/api/v1/products/' + productId[productId.length - 1]);
+    product = await getProduct(productId[productId.length - 1]);
 
     if (!product) {
         throw new Error(`Produit indisponible`);
@@ -64,7 +65,7 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
 
     let product: Product | undefined;
 
-    product = await clientFetcher('/api/v1/products/' + productId[productId.length - 1]);
+    product = await getProduct(productId[productId.length - 1]);
 
     if (!product) {
         throw new Error(`Produit indisponible`);
