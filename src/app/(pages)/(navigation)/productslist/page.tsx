@@ -2,7 +2,7 @@ import { Product } from '@/models/product/product';
 import ProductCard from '@/app/components/product/ProductCard';
 import { Suspense } from 'react';
 import PageLoading from '@/app/components/skeletons/PageLoading';
-import { clientFetcher } from '@/utils/http/fetch';
+import getProductList from '@/app/domain/product/getProductList';
 
 export const dynamic = 'force-dynamic';
 
@@ -17,7 +17,7 @@ export async function generateMetadata() {
 export default async function ProductListPage() {
 
     let productslist: any | undefined;
-    productslist = await clientFetcher('/api/v1/products/list');
+    productslist = getProductList();
 
     return (
         <Suspense fallback={<PageLoading />}>
