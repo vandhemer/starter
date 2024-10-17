@@ -1,0 +1,56 @@
+{
+    "id": "749450",
+    "name": "Canapé d'angle convertible 4 places",
+    "type": "ConfoProduct",
+    "price": {
+      "basicPrice": "1499.99",
+      "unitprice": 0,
+      "discountPrice": 0,
+      "currency": ""
+    },
+    "brand": null,
+    "images": [
+      {
+        "url": "https:////media.conforama.fr/m/export/Medias/700000/40000/9000/400/50/G_749450_A.jpg",
+        "imageType": "",
+        "altText": ""
+      }
+    ],
+    "attributes": [
+      {
+        "code": "conforamaClassificationSystem/1.0/707.292558",
+        "name": "Type",
+        "type": "ESSENTIAL",
+        "unit": "",
+        "value": "convertible"
+      },
+      {
+        "code": "conforamaClassificationSystem/1.0/707.292634",
+        "name": "Revêtement",
+        "type": "ESSENTIAL",
+        "unit": "",
+        "value": "Tissu"
+      },
+      {
+        "code": "conforamaClassificationSystem/1.0/707.292705",
+        "name": "Tétières / appuie-têtes ajustables",
+        "type": "ESSENTIAL",
+        "unit": "",
+        "value": "Oui"
+      },
+      {
+        "code": "conforamaClassificationSystem/1.0/707.292670",
+        "name": "Coffre de rangement",
+        "type": "ESSENTIAL",
+        "unit": "",
+        "value": "Oui"
+      }
+    ],
+    "numberOfReview": 418,
+    "ratingReview": "4.2",
+    "slug": "/canape-salon-sejour/canape/canape-convertible/canape-d-angle-convertible-4-places-selva-coloris-gris/p/749450",
+    "stock": "AVAILABLE",
+    "refFournisseur": "SELVA coloris gris",
+    "createdAt": "2024-10-17T09:34:33.201Z",
+    "updatedAt": "2024-10-17T09:34:33.201Z"
+}

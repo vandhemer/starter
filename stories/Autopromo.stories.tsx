@@ -1,33 +1,27 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Homepage from '@/app/page';
+import AutoPromo from '@/app/components/cms/Autopromo';
 
-const meta = {
-  title: 'Pages/Homepage',
-  component: Homepage,
+const meta: Meta<typeof AutoPromo>  = {
+  title: 'Components/AutoPromo',
+  component: AutoPromo,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
-    nextjs: {
-        appDirectory: true,
-    },
   },
   args: {},
-} satisfies Meta<typeof Homepage>;
+};
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Autopromo: Story = {
-  args: {
-    headerData: {
-      notification_bar: {
+type Story = StoryObj<typeof AutoPromo>;
+
+export const AutopromoContent: Story = {
+    args: {
         autopromo: [ 
           {
             autopromo_content: "EXCLUSIVITE CONFORAMA.fr : Payez en 4 fois Carte bancaire",
             background_color: "#fff"
           }
         ]
-      }
-    }
-  }
+    },
 };

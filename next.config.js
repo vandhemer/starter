@@ -20,6 +20,7 @@ const config = {
     CONTENTSTACK_APP_HOST: process.env.CONTENTSTACK_APP_HOST || "app.contentstack.com",
     CONTENTSTACK_LIVE_PREVIEW: process.env.CONTENTSTACK_LIVE_PREVIEW || "true",
     CONTENTSTACK_LIVE_EDIT_TAGS: process.env.CONTENTSTACK_LIVE_EDIT_TAGS || "false",
+    PRODUCT_API_URL: process.env.PRODUCT_API_URL,
   },
   experimental: { largePageDataBytes: 128 * 100000 },
   images: {

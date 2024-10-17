@@ -15,7 +15,7 @@ type EntryData = {
   $: AdditionalParam;
 }
 
-type AutopromoData = {
+export type AutopromoData = {
   autopromo_content: string;
   background_color: string;
 }

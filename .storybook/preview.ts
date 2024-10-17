@@ -1,7 +1,10 @@
 import type { Preview } from "@storybook/react";
 import '../stories/styles/globals.css';
 import { INITIAL_VIEWPORTS, MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
-import { useEffect } from "react";
+import { initialize, mswLoader } from 'msw-storybook-addon';
+
+// Initialize MSW
+initialize({ onUnhandledRequest: 'warn' });
 
 const preview: Preview = {
   parameters: {
@@ -21,7 +24,8 @@ const preview: Preview = {
     nextjs: {
       appDirectory: true,
     },
-  }
+  },
+  loaders: [mswLoader],
 };
 
 export default preview;

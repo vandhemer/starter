@@ -2,6 +2,8 @@ import Header from "@/components/header/Header";
 import type { Metadata } from "next";
 import { use } from "react";
 import { fetchHeaderRes } from "@/app/services/cms/getEntryService";
+import AutoPromo from "@/components/cms/Autopromo";
+import { AutopromoData } from "@/app/models/cms/layout";
 
 export const metadata: Metadata = {
     title: "Conforama : meuble, cuisine, électroménager, décoration",
@@ -17,10 +19,12 @@ export const metadata: Metadata = {
 export default function LayoutNavigation( { children }: { children: React.ReactNode }) {
 
     const headerData = use(fetchHeaderRes());
+    const autoPromos : AutopromoData[] = headerData?.notification_bar?.autopromo || [];
 
     return (
         <div className="w-full mx-auto relative container">
-            <Header autopromo={headerData?.notification_bar?.autopromo || []} />
+            <AutoPromo autopromo={ autoPromos } />
+            <Header headerTransparent={ true } />
             {children}
         </div>
     )
