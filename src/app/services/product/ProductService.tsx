@@ -1,4 +1,6 @@
+import { customHostProductBaseUrl } from "@/utils/config/baseUrlProduct";
 import { axiosServerFetcher } from "@/utils/http/server";
+
 
 export const fetchProductById = async (id: string): Promise<any> => {
 

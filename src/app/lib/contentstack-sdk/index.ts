@@ -21,8 +21,8 @@ type GetEntryByUrl = {
 };
 
 const { publicRuntimeConfig } = getConfig();
-const envConfig = process.env.CONTENTSTACK_API_KEY
-  ? process.env
+const envConfig = process?.env.CONTENTSTACK_API_KEY
+  ? process?.env
   : publicRuntimeConfig;
 
 let customHostBaseUrl = envConfig.CONTENTSTACK_API_HOST as string;

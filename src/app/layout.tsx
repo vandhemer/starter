@@ -13,7 +13,9 @@ export default async function RootLayout({
             <body className={`${inter.className} antialiased`}>
                 <Providers>
                     <main className="relative">
-                        {children}
+                        <div className="w-full mx-auto relative container">
+                            {children}
+                        </div>
                     </main>
                 </Providers>
             </body>

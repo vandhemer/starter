@@ -25,7 +25,6 @@ export default async function ProductListPage() {
                 {productslist?.map((product: Product) => (                    
                     <ProductCard key={product.id} {...product} />
                 ))}
-
             </div>
         </Suspense>
     )

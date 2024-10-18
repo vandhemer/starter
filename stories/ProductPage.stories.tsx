@@ -3,6 +3,8 @@ import ProductDetailPage from '@/app/(pages)/(navigation)/product/[...id]/page';
 import NavigationLayout from '@/app/(pages)/(navigation)/layout';
 import { http, HttpResponse } from 'msw';
 import productMock from '__mocks__/productMock.json';
+import RootLayout from '@/app/layout';
+import Header from '@/app/components/header/Header';
 
 const meta: Meta<typeof ProductDetailPage> = {
   title: 'Pages/Productpage',
@@ -14,7 +16,12 @@ const meta: Meta<typeof ProductDetailPage> = {
         appDirectory: true,
     },
   },
-  decorators: [(Story) => <NavigationLayout><Story /></NavigationLayout>],
+  decorators: [(Story) =>
+    <RootLayout>
+        <Header headerTransparent={ true } />
+        <Story />
+    </RootLayout>
+  ],
 };
 
 export default meta;

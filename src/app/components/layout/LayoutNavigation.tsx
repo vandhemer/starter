@@ -22,11 +22,11 @@ export default function LayoutNavigation( { children }: { children: React.ReactN
     const autoPromos : AutopromoData[] = headerData?.notification_bar?.autopromo || [];
 
     return (
-        <div className="w-full mx-auto relative container">
+        <>
             <AutoPromo autopromo={ autoPromos } />
             <Header headerTransparent={ true } />
             {children}
-        </div>
+        </>
     )
     
 }

@@ -7,8 +7,8 @@ import { HeaderProps } from '@/app/models/cms/layout';
 
 
 const { publicRuntimeConfig } = getConfig();
-const envConfig = process.env.CONTENTSTACK_API_KEY
-    ? process.env
+const envConfig = process?.env.CONTENTSTACK_API_KEY
+    ? process?.env
     : publicRuntimeConfig;
 
 const liveEdit = envConfig.CONTENTSTACK_LIVE_EDIT_TAGS === 'true';

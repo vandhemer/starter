@@ -48,6 +48,11 @@ const config = {
       },
     ]
   },
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  }
 };
 
 if(process.env.ANALYZE === 'true') {
