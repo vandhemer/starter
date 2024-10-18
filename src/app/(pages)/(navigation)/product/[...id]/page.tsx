@@ -74,10 +74,10 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
      * Redirect to product slug in case of hiting the page with /product/{...id}
      */
 
-    if (product.slug !== '/' + productId.slice(0, -1).join('/') + /p/ + productId[lastProductIdPath]) {
-        const newUrl = UrlBuilder.buildProductUrl(product.slug, productId[lastProductIdPath]);
-        permanentRedirect(newUrl, RedirectType.replace);
-    }
+    // if (product.slug !== '/' + productId.slice(0, -1).join('/') + /p/ + productId[lastProductIdPath]) {
+    //     const newUrl = UrlBuilder.buildProductUrl(product.slug, productId[lastProductIdPath]);
+    //     permanentRedirect(newUrl, RedirectType.replace);
+    // }
 
     return (
         <Suspense fallback={<PageLoading />}>

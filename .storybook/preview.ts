@@ -1,5 +1,6 @@
 import type { Preview } from "@storybook/react";
 import '../stories/styles/globals.css';
+import '@/styles/globals.css';
 import { INITIAL_VIEWPORTS, MINIMAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { initialize, mswLoader } from 'msw-storybook-addon';
 

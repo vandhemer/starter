@@ -1,8 +1,8 @@
 import { Config, Region, LivePreview, Stack } from "contentstack";
 import getConfig from "next/config";
 const { publicRuntimeConfig } = getConfig();
-const envConfig = process.env.CONTENTSTACK_API_KEY
-  ? process.env
+const envConfig = process?.env.CONTENTSTACK_API_KEY
+  ? process?.env
   : publicRuntimeConfig;
 const {
   CONTENTSTACK_API_KEY,
