@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Homepage from '@/app/page';
 
 const meta: Meta<typeof Homepage> = {
-  title: 'Pages/Homepage',
+  title: 'Pages/Home page',
   component: Homepage,
   tags: ['autodocs'],
   parameters: {

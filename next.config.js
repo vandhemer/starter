@@ -52,7 +52,10 @@ const config = {
     fetches: {
       fullUrl: true,
     },
-  }
+  },
+  images: {
+    unoptimized: true,
+  },
 };
 
 if(process.env.ANALYZE === 'true') {

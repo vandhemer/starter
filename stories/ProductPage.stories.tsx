@@ -5,7 +5,7 @@ import productMock from '__mocks__/productMock.json';
 import Header from '@/app/components/header/Header';
 
 const meta: Meta<typeof ProductDetailPage> = {
-  title: 'Pages/Productpage',
+  title: 'Pages/Product details page',
   component: ProductDetailPage,
   tags: ['autodocs'],
   parameters: {
