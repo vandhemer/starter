@@ -7,8 +7,9 @@ import { Suspense } from 'react';
 import PageLoading from '@/skeletons/PageLoading';
 import Image from 'next/image';
 import Button from '@/components/Button';
-import Stars from '@/app/components/Stars';
+import Stars from '@/components/stars/Stars';
 import { getProduct } from '@/app/domain/product/getProduct';
+import Breadcrumb from '@/components/Breadcrumb';
 
 export async function generateMetadata({ params }: { params: { id: string[] } }) {
 
@@ -74,13 +75,14 @@ export default async function ProductDetailPage({ params }: { params: { id: stri
      * Redirect to product slug in case of hiting the page with /product/{...id}
      */
 
-    // if (product.slug !== '/' + productId.slice(0, -1).join('/') + /p/ + productId[lastProductIdPath]) {
-    //     const newUrl = UrlBuilder.buildProductUrl(product.slug, productId[lastProductIdPath]);
-    //     permanentRedirect(newUrl, RedirectType.replace);
-    // }
+    if (process.env.STORYBOOK_RUNIN == 'false' && product.slug !== '/' + productId.slice(0, -1).join('/') + /p/ + productId[lastProductIdPath]) {
+        const newUrl = UrlBuilder.buildProductUrl(product.slug, productId[lastProductIdPath]);
+        permanentRedirect(newUrl, RedirectType.replace);
+    }
 
     return (
         <Suspense fallback={<PageLoading />}>
+            <Breadcrumb />
             <section className="relative py-6">
                 <div className="w-full mx-auto px-4 sm:px-6 lg:px-0">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mx-auto max-md:px-2">

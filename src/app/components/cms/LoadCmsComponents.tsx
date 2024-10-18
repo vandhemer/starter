@@ -15,13 +15,11 @@ export default function LoadCmsComponents({ uid }: Page) {
     }
 
     return (
-        <>
-            <RenderComponents
-                pageComponents={ data.page_components }
-                contentTypeUid='page'
-                entryUid={ uid }
-                locale='fr-FR'
-            />
-        </>
+        <RenderComponents
+            pageComponents={ data.page_components }
+            contentTypeUid='page'
+            entryUid={ uid }
+            locale='fr-FR'
+        />
     )
 }

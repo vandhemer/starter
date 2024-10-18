@@ -4,7 +4,7 @@
 
 import React from 'react';
 import { render } from '@testing-library/react';
-import Stars from '@/components/Stars';
+import Stars from '@/app/components/stars/Stars';
 
 describe('<Stars />', () => {
     it('renders the correct number of stars based on the rate prop', () => {

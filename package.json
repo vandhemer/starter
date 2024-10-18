@@ -11,7 +11,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 STORYBOOK_RUNIN=true",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=chpt_bf376d27f8ec739",
     "prepare": "husky",

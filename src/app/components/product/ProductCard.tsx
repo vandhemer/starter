@@ -3,7 +3,7 @@ import { getDictionary } from '@/app/[lang]/dictionaries';
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '@/components/Button';
-import Stars from '@/components/Stars';
+import Stars from '@/app/components/stars/Stars';
 
 export default async function ProductCard(product: Product) {
 
@@ -36,7 +36,7 @@ export default async function ProductCard(product: Product) {
                         <Stars rate={product.ratingReview} />
                     </div>
                     <span className="pl-2 font-normal leading-7 text-gray-500 text-sm">
-                        {product.numberOfReview && `${product.numberOfReview} ${dict.products.reviews}`}
+                        {product.numberOfReview > 0 && `${product.numberOfReview} ${dict.products.reviews}`}
                     </span>
                 </div>
                 <div className="my-6">

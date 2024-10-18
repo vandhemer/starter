@@ -1,9 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import ProductDetailPage from '@/app/(pages)/(navigation)/product/[...id]/page';
-import NavigationLayout from '@/app/(pages)/(navigation)/layout';
 import { http, HttpResponse } from 'msw';
 import productMock from '__mocks__/productMock.json';
-import RootLayout from '@/app/layout';
 import Header from '@/app/components/header/Header';
 
 const meta: Meta<typeof ProductDetailPage> = {
@@ -17,17 +15,19 @@ const meta: Meta<typeof ProductDetailPage> = {
     },
   },
   decorators: [(Story) =>
-    <RootLayout>
+    <main className="relative">
+      <div className="w-full mx-auto relative container">
         <Header headerTransparent={ true } />
         <Story />
-    </RootLayout>
+      </div>
+    </main>
   ],
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Content: Story = {
+export const ConforamaProduct: Story = {
   args: {
     params: {
       id: ['793544']

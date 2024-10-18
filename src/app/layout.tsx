@@ -12,11 +12,7 @@ export default async function RootLayout({
         <html lang="fr">
             <body className={`${inter.className} antialiased`}>
                 <Providers>
-                    <main className="relative">
-                        <div className="w-full mx-auto relative container">
-                            {children}
-                        </div>
-                    </main>
+                    {children}
                 </Providers>
             </body>
         </html>

@@ -1,18 +1,17 @@
 import LoadCmsComponents from "@/components/cms/LoadCmsComponents";
 import { Suspense } from "react";
 import TextLoading from "@/skeletons/TextLoading";
-import LayoutNavigation from "@/components/layout/LayoutNavigation";
 import '@/styles/home.css';
 import Bento from "@/components/cms/Bento";
+import NavigationLayout from "./(pages)/(navigation)/layout";
 
 export const dynamic = "force-dynamic";
 
 export default function Homepage() {
 
     return (
-        <LayoutNavigation>
+        <NavigationLayout>
             <Suspense fallback={<TextLoading />}>
-
                 <LoadCmsComponents
                     uid="Home"
                     page_components={[]}
@@ -24,8 +23,7 @@ export default function Homepage() {
                     title={""} />
 
                 <Bento />
-
             </Suspense>
-        </LayoutNavigation>
+        </NavigationLayout>
     )
 }

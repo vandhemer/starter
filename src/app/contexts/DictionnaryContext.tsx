@@ -1,7 +1,7 @@
 // dictionary-provider.tsx
 'use client'
 
-import { createContext, useContext } from "react"
+import { createContext } from "react"
 import { getDictionary } from '@/app/[lang]/dictionaries';
 
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>
